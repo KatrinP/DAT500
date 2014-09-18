@@ -1,0 +1,23 @@
+#!/bin/bash
+
+VENDOR_DIR=./vendor
+GITHUB=github.com
+HTTP=https
+GIT=git
+
+mkdir -p "$VENDOR_DIR" 2>&1 >/dev/null
+if [ $? -ne 0 ]
+then
+	# directory exists, we don't care
+fi
+
+USERNAME=KatrinP
+PACKAGE=Language-recognizer
+
+"$GIT" clone "$HTTPS"://"$GITHUB"/"$USERNAME"/"$PACKAGE" "$VENDOR_DIR"/"$PACKAGE"
+
+if [ $? -ne 0 ]
+then
+	echo "Fatal error."
+	exit 1
+fi

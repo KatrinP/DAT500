@@ -19,6 +19,6 @@
       }
   ],
   "require": {
-      "KatrinP/Language-recognizer": "master"
-  }
+      "KatrinP/Language-recognizer": "@dev"
+  },
 }

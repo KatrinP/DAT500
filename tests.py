@@ -20,4 +20,4 @@ def createTestFile(sourceFile, newFile):
     newFile.close()
 
 
-createTestFile("tests_create/cze1.txt", "tests/cze1.txt")
+    # createTestFile("tests_create/cze1.txt", "tests/cze1.txt")

@@ -94,5 +94,7 @@ def main ( argv = None ):
 
 	print (counter.count ( filename ));
 
+	return 0
+
 if __name__ == "__main__":
 	sys.exit( main () )

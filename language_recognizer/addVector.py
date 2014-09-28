@@ -1,6 +1,6 @@
 import sys
 
-from language_recognizer import langVector
+import langVector
 
 
 if len(sys.argv) < 3:

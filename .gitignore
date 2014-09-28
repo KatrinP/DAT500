@@ -1,2 +1,4 @@
 libs/*
+__pycache__/*
 composer.lock
+__init__.py

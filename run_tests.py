@@ -19,6 +19,10 @@ def generateOccurences():
     # etc than create and fill csv file
 
 
-createTestFiles()
-testFiles()
-generateOccurences()
+if __name__ == "__main__":
+
+	createTestFiles()
+	testFiles()
+	generateOccurences()
+
+	sys.exit(0)

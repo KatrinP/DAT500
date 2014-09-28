@@ -1,8 +1,9 @@
 import operator
 import collections
+import sys
 
 import ngrams
-
+import langVector
 
 
 
@@ -85,20 +86,21 @@ def find_the_best(detected_languages, winners_for_ngram, n):
 
 
 #main:
-#command line inputs and default setting od vectors file
-"""
-if len(sys.argv) > 2:
-	sentence = sys.argv[1]
-	vector_file = sys.argv[2]
-elif len(sys.argv) == 2:
-	sentence = sys.argv[1]
-	vector_file = "language_vector.p"
-else:
-	sentence = input("Your sentence: ")
-	vector_file = "language_vector.p"
+if __name__ == "__main__":
+    #command line inputs and default setting od vectors file
 
-vectors = langVector.load_vector(vector_file)
-language, probability = recognize_language(sentence, vectors, number_of_ngrams)
-print("Given sentence is in",language, "(with", probability*100, "% probability)")
+    if len(sys.argv) > 2:
+        sentence = sys.argv[1]
+        vector_file = sys.argv[2]
+    elif len(sys.argv) == 2:
+        sentence = sys.argv[1]
+        vector_file = "language_vector.p"
+    else:
+        sentence = input("Your sentence: ")
+        vector_file = "language_vector.p"
 
-"""
+    vectors = langVector.load_vector(vector_file)
+    language, probability = recognize_language(sentence, vectors, number_of_ngrams)
+    print("Given sentence is in",language, "(with", probability*100, "% probability)")
+
+    sys.exit(0)

@@ -2,8 +2,8 @@ import operator
 import collections
 import sys
 
-import ngrams
-import langVector
+import language_recognizer . ngrams as ngrams
+import language_recognizer . langVector
 
 
 

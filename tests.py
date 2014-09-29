@@ -29,9 +29,11 @@ def testFile(inputFileName, outputFileName):
     outputFile = codecs.open(outputFileName, 'w+', encoding="utf-8")  # creates/rewrites output file
     for line in inputFile:
         language, probability = recognize_language(line, vectors, number_of_ngrams)
-        outputFile.write(language + '\n\r')
+        outputFile.write(language + '\t' + str(probability) + '\n\r')
     inputFile.close()
     outputFile.close()
 
 # createTestFile("tests_create/cze1.txt", "tests/cze1.txt")
-testFile("tests/cze1.txt", "test_results/cze1.txt")
+
+if __name__ == "__main__":
+    testFile("tests/cze1.txt", "test_results/cze1.txt")

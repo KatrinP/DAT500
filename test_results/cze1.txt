@@ -1,0 +1,5 @@
+czech	0.5
+czech	0.5
+urdu	0.5
+urdu	0.5
+

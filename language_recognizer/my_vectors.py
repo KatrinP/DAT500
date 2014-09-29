@@ -1,4 +1,4 @@
-import langVector
+import language_recognizer . langVector
 
 langVector.add_language_vector("czech", "cs/train-cs.txt", "language_vector.p")
 print("I have learned czech!")

@@ -3,7 +3,7 @@ import os
 import sys
 import collections
 
-import ngrams
+import language_recognizer . ngrams
 
 
 

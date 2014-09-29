@@ -7,6 +7,7 @@ from tests import testFile
 
 def createTestFiles():
     createTestFile("tests_create/cze1.txt", "tests/cze1.txt")
+    createTestFile("tests_create/cze2.txt", "tests/cze2.txt")
     # more commands like this
 
 

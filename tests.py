@@ -12,13 +12,13 @@ def createTestFile(inputFileName, outputFileName):
     for line in inputFile:
         str += line
     str = str.replace('. ', '.')  # i dont want to start lines with space
-    str = str.replace('\n\r', '')
+    str = str.replace('\r\n', '')
     str = str.replace('\n', '')
     str = str.replace('\r', '')
     output = str.split('.')
     for outText in output:
         if outText != "":
-            outputFile.write(outText + '.' + '\n\r')
+            outputFile.write(outText + '.' + '\r\n')
     inputFile.close()
     outputFile.close()
 
@@ -29,7 +29,7 @@ def testFile(inputFileName, outputFileName):
     outputFile = codecs.open(outputFileName, 'w+', encoding="utf-8")  # creates/rewrites output file
     for line in inputFile:
         language, probability = recognize_language(line, vectors, number_of_ngrams)
-        outputFile.write(language + '\t' + str(probability) + '\n\r')
+        outputFile.write(language + '\r\n')
     inputFile.close()
     outputFile.close()
 

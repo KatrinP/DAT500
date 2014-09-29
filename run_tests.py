@@ -20,9 +20,10 @@ def testFiles():
 def generateOccurences():
     oc = Occurence()
     dict1 = oc.count("test_results/cze1.txt");
-    dict1 = oc.count("test_results/cze2.txt");
+    dict2 = oc.count("test_results/cze2.txt");
     # etc than create and fill csv file
     print(dict1)
+    print(dict2)
 
 if __name__ == "__main__":
 

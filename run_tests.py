@@ -106,6 +106,7 @@ def generateCSV(results):
 		outputFile.write('\r\n')  # newline
 		for lang in result:  # counts
 			outputFile.write( str(result[lang]) + ',')
+		outputFile.write('\r\n')
 	outputFile.close()
 
 

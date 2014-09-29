@@ -1,3 +1,4 @@
+import codecs
 import sys
 
 from occurence import Occurence
@@ -18,7 +19,7 @@ def testFiles():
     testFile("tests/cze2.txt", "test_results/cze2.txt")
     testFile("tests/de1.txt", "test_results/de1.txt")
     testFile("tests/nor1.txt", "test_results/nor1.txt")
-    #more commands like this
+    # more commands like this
 
 
 def generateOccurences():
@@ -28,16 +29,26 @@ def generateOccurences():
     results.append(("CZE", oc.count("test_results/cze2.txt")))
     results.append(("DE", oc.count("test_results/de1.txt")))
     results.append(("NOR", oc.count("test_results/nor1.txt")))
-    # etc than create and fill csv file
-    for (a, b) in results:
-        print(a)
-        print(b)
     print(results)
+    return results
+
+
+def generateCSV(results):
+    outputFile = codecs.open("results/graphs.csv", 'w+', encoding="utf-8")  # creates/rewrites output file
+    for (rightLang, result) in results:
+        outputFile.write(rightLang + '\r\n')
+        for lang in result:  # languages
+            outputFile.write(lang + ',')
+        outputFile.write('\r\n')  # newline
+        for lang in result:  # counts
+            outputFile.write(result[lang] + ',')
+    outputFile.close()
+
 
 if __name__ == "__main__":
+    createTestFiles()
+    testFiles()
+    results = generateOccurences()
+    generateCSV(results);
 
-	createTestFiles()
-	testFiles()
-	generateOccurences()
-
-	sys.exit(0)
+sys.exit(0)

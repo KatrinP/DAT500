@@ -12,12 +12,14 @@ def createTestFiles():
 
 def testFiles():
     testFile("tests/cze1.txt", "test_results/cze1.txt")
+    testFile("tests/cze2.txt", "test_results/cze2.txt")
     #more commands like this
 
 
 def generateOccurences():
     oc = Occurence()
     dict1 = oc.count("test_results/cze1.txt");
+    dict1 = oc.count("test_results/cze2.txt");
     # etc than create and fill csv file
     print(dict1)
 

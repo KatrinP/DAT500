@@ -23,15 +23,16 @@ def testFiles():
 
 def generateOccurences():
     oc = Occurence()
-    dict1 = oc.count("test_results/cze1.txt");
-    dict2 = oc.count("test_results/cze2.txt");
-    dict3 = oc.count("test_results/de1.txt");
-    dict4 = oc.count("test_results/nor1.txt");
+    results = []
+    results.append(("CZE", oc.count("test_results/cze1.txt")))
+    results.append(("CZE", oc.count("test_results/cze2.txt")))
+    results.append(("DE", oc.count("test_results/de1.txt")))
+    results.append(("NOR", oc.count("test_results/nor1.txt")))
     # etc than create and fill csv file
-    print(dict1)
-    print(dict2)
-    print(dict3)
-    print(dict4)
+    for (a, b) in results:
+        print(a)
+        print(b)
+    print(results)
 
 if __name__ == "__main__":
 

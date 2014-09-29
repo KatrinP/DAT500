@@ -1,54 +1,121 @@
 import codecs
 import sys
+import re
+import os
+import subprocess
+import math
 
 from occurence import Occurence
+from results import Graph
 from tests import createTestFile
 from tests import testFile
 
 
-def createTestFiles():
-    createTestFile("tests_create/cze1.txt", "tests/cze1.txt")
-    createTestFile("tests_create/cze2.txt", "tests/cze2.txt")
-    createTestFile("tests_create/de1.txt", "tests/de1.txt")
-    createTestFile("tests_create/nor1.txt", "tests/nor1.txt")
-    # more commands like this
+CREATE_DIR = "./tests_create"
+TEST_DIR = "./tests"
+RESULT_DIR = "./tests_results"
+GRAPH_DIR = "./tests_graphs"
+CSV_DIR = "./tests_csv"
 
 
-def testFiles():
-    testFile("tests/cze1.txt", "test_results/cze1.txt")
-    testFile("tests/cze2.txt", "test_results/cze2.txt")
-    testFile("tests/de1.txt", "test_results/de1.txt")
-    testFile("tests/nor1.txt", "test_results/nor1.txt")
-    # more commands like this
+def is_list( l ):
+	return isinstance ( l, type( list () ) )
+
+def createDirs():
+	if not os.path.exists(CREATE_DIR):
+		os.makedirs(CREATE_DIR)
+	if not os.path.exists(TEST_DIR):
+		os.makedirs(TEST_DIR)
+	if not os.path.exists(RESULT_DIR):
+		os.makedirs(RESULT_DIR)
+	if not os.path.exists(GRAPH_DIR):
+		os.makedirs(GRAPH_DIR)
+	if not os.path.exists(CSV_DIR):
+		os.makedirs(CSV_DIR)
+
+def getFiles( dirname ):
+	outfiles = []
+	if not is_list ( dirname ):
+		dirname = [ dirname ]
+	for d in dirname:
+		files = os.listdir(d)
+		for f in files:
+			outfiles.append(f)
+
+	return outfiles
+
+def createTestFiles ():
+
+	files = getFiles ( CREATE_DIR )
+
+	for f in files:
+		createTestFile ( CREATE_DIR + "/" + f, TEST_DIR + "/" + f )
+
+
+def testFiles ():
+
+	files = getFiles ( TEST_DIR )
+	for f in files:
+		testFile( TEST_DIR + "/" + f, RESULT_DIR + "/" + f )
+
+def determineLang ( filename ):
+	lang = [ "cz", "de", "no", "en" ]
+
+	for l in lang:
+		if re . match ( l, filename ):
+			return l
+	return None
 
 
 def generateOccurences():
-    oc = Occurence()
-    results = []
-    results.append(("CZE", oc.count("test_results/cze1.txt")))
-    results.append(("CZE", oc.count("test_results/cze2.txt")))
-    results.append(("DE", oc.count("test_results/de1.txt")))
-    results.append(("NOR", oc.count("test_results/nor1.txt")))
-    print(results)
-    return results
+
+	files = getFiles ( RESULT_DIR )
+	oc = Occurence()
+	gr = Graph ()
+	res = {}
+	for f in files:
+		res [ f ] = oc . count ( RESULT_DIR + "/" + f )
+
+	results = []
+	langs = {}
+	for f in res . keys ():
+		lang = determineLang ( f )
+		results . append ( ( f, res [ f ] ) )
+		if lang in langs . keys ():
+			for i in res [ f ] . keys ():
+				if i in langs [ lang ] . keys ():
+					langs [ lang ] [ i ] += res [ f ] [ i ]
+				else:
+					langs [ lang ] [ i ] = res [ f ] [ i ]
+		else:
+			langs [ lang ] = res [ f ]
+
+
+	for lang in langs . keys ():
+		gr . process ( langs [ lang ], GRAPH_DIR + "/" + lang + ".png" )
+
+	return results
 
 
 def generateCSV(results):
-    outputFile = codecs.open("results/graphs.csv", 'w+', encoding="utf-8")  # creates/rewrites output file
-    for (rightLang, result) in results:
-        outputFile.write(rightLang + '\r\n')
-        for lang in result:  # languages
-            outputFile.write(lang + ',')
-        outputFile.write('\r\n')  # newline
-        for lang in result:  # counts
-            outputFile.write(result[lang] + ',')
-    outputFile.close()
+	outputFile = codecs.open( CSV_DIR + "/graphs.csv", 'w+', encoding="utf-8")  # creates/rewrites output file
+	for (rightLang, result) in results:
+		outputFile.write(rightLang + '\r\n')
+		for lang in result:  # languages
+			outputFile.write(lang + ',')
+		outputFile.write('\r\n')  # newline
+		for lang in result:  # counts
+			outputFile.write( str(result[lang]) + ',')
+	outputFile.close()
 
 
 if __name__ == "__main__":
-    createTestFiles()
-    testFiles()
-    results = generateOccurences()
-    generateCSV(results);
 
-sys.exit(0)
+	createDirs()
+	createTestFiles()
+	testFiles()
+	results = generateOccurences()
+	generateCSV(results);
+
+	sys.exit(0)
+

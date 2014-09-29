@@ -24,6 +24,8 @@ class Occurence:
 		return isinstance ( s, type( str () ) )
 
 	def add ( self, lang ):
+		if not lang:
+			return
 		if lang in self . _languages . keys ():
 			self . _languages [ lang ] += 1
 		else:
@@ -34,11 +36,11 @@ class Occurence:
 			return string
 		ltrim = 0
 		rtrim = len(string)-1
-		while string [ ltrim ] == '\n' or string [ ltrim ] == ' ' or string [ ltrim ] == '\r':
+		while ltrim < len(string) and ( string [ ltrim ] == '\n' or string [ ltrim ] == ' ' or string [ ltrim ] == '\r' ):
 			ltrim = ltrim + 1
-		while string [ rtrim ] == '\n' or string [ rtrim ] == ' ' or string [ rtrim ] == '\r':
+		while rtrim > 0 and ( string [ rtrim ] == '\n' or string [ rtrim ] == ' ' or string [ rtrim ] == '\r' ):
 			rtrim = rtrim - 1
-		return string [ ltrim:rtrim+1 ]
+		return string [ ltrim:rtrim + 1 ]
 
 	
 	def count ( self, filename ):

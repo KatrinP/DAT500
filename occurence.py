@@ -29,13 +29,7 @@ class Occurence:
 			self . _languages [ lang ] = 1
 
 	def trim ( self, string ):
-		ltrim = 0
-		rtrim = len(string)-1
-		while string [ ltrim ] == '\n' or string [ ltrim ] == ' ' or string [ ltrim ] == '\r':
-			ltrim = ltrim + 1
-		while string [ rtrim ] == '\n' or string [ rtrim ] == ' ' or string [ rtrim ] == '\r':
-			rtrim = rtrim - 1
-		return string [ ltrim:rtrim ]
+		return string . strip ()
 
 	
 	def count ( self, filename ):

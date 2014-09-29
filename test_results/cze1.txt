@@ -1,5 +1,9 @@
 czech	0.5
+slovak	0.8333333333333334
 czech	0.5
+slovak	0.8333333333333334
+czech	0.5
+slovak	0.8333333333333334
 urdu	0.5
-urdu	0.5
+slovak	0.8333333333333334
 

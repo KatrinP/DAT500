@@ -18,6 +18,7 @@ class NoFileException(Exception):
 class Occurence:
 	def __init__ (self):
 		self . _languages = {}
+		self . _lastFile = ""
 
 	def is_str ( self, s ):
 		return isinstance ( s, type( str () ) )
@@ -50,6 +51,10 @@ class Occurence:
 		"""
 		if not filename or not len ( filename ):
 			raise NoFileException ( "Fatal error. No input file given" );
+
+		if self . _lastFile == filename:
+			return self . _languages
+
 		if self . is_str ( filename ):
 			fp = open ( filename, "r" )
 		else:
@@ -66,6 +71,7 @@ class Occurence:
 		finally:
 			fp . close ()
 
+		self . _lastFile = filename;
 		return self . _languages;
 
 

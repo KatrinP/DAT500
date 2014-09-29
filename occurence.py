@@ -56,6 +56,8 @@ class Occurence:
 		if not fp:
 			raise NoFileException ( "Fatal error. File does not exist or has bad permitions" )
 
+		self . _languages = {}
+
 		try:
 			for line in fp:
 				self . add ( self . trim ( line ) )

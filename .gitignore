@@ -6,3 +6,4 @@ tests/*
 tests_results/*
 tests_graphs/*
 tests_csv/*
+languages/*

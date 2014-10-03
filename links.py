@@ -66,6 +66,7 @@ class Download:
 		self . _verbose = True
 		self . _skip_non_existent = False
 		self . _update = False
+		self . _split_files = 50000
 
 	def options ( self, options = {} ):
 		if "languages" in options.keys():
@@ -84,6 +85,8 @@ class Download:
 			self . _skip_non_existent = options[ "skip" ]
 		if "update" in options . keys():
 			self . _update = options[ "update" ]
+		if "split_files" in options . keys():
+			self . _split_files = int ( options[ "split_files" ] )
 		
 	def langs ( self ):
 		"""
@@ -215,20 +218,32 @@ class Download:
 			langs = self . _langs
 		else:
 			langs = lang
-
+		apendix = ".%08d.txt"
+		limit = 0
+		line_count = 0
 		for lang in langs:
 			
 			save_path = self . _destination_dir % { "0": lang }
 			destination_path = save_path + "/" + self . _destination_template % { "0": lang }
 
 			if self . _update and \
-			   os . path . isfile ( destination_path ) and \
-			   os . access ( destination_path, os . W_OK ) and (\
+			   ( ( os . path . isfile ( destination_path ) and \
+				   os . access ( destination_path, os . W_OK ) ) or (\
+				 ( os . path . isfile ( (destination_path + apendix) % 0 ) and \
+				   os . access ( (destination_path + apendix)  % 0, os . W_OK ) ) ) ) and (\
 			   self . _destination_dir . find ( "%(0)s" ) != -1 or \
 			   self . _destination_template . find ( "%(0)s" ) != -1 ):
 				print ( "Language \"%s\" has been already downloaded. Skiping." % lang )
 				continue
 
+			if self . _destination_dir . find ( "%(0)s" ) == -1 and \
+			   self . _destination_template . find ( "%(0)s" ) == -1:
+			   line_count = limit * self . _split_files
+			   if limit:
+			   	destination_path = destination_path + apendix
+			else:
+				line_count = 0
+				limit = 0
 
 			try:
 				rawfile = self . get ( lang )
@@ -245,24 +260,46 @@ class Download:
 			if self . _verbose:
 				print ( "Generating \"%s\" files" % lang )
 
-			if self . _destination_dir . find ( "%(0)s" ) == -1 and \
-			   self . _destination_template . find ( "%(0)s" ) == -1:
-				# if name of the file is not parameterized by lang
-				# we will append the data to the destination file
-				output = codecs . open ( destination_path, "a", encoding = "utf-8" )
-			else:
-				# otherwise we rewrite the destination file
-				output = codecs . open ( destination_path, "w", encoding = "utf-8" )
-
 			for line in rawfile:
+				if line_count >= limit * self . _split_files:
+					if limit == 1:
+						output . close ()
+						new_path = destination_path + apendix
+						if os . path . isfile ( new_path % ( limit - 1 ) ):
+							os . remove ( new_path % ( limit - 1 ) )
+						os . rename ( destination_path, new_path % ( limit - 1 ) )
+						destination_path = new_path
+
+					if limit > 0:
+						if not output . closed:
+							output . close ()
+						new_path = destination_path % ( limit )
+					else:
+						new_path = destination_path
+
+					if self . _destination_dir . find ( "%(0)s" ) == -1 and \
+					   self . _destination_template . find ( "%(0)s" ) == -1:
+						# if name of the file is not parameterized by lang
+						# we will append the data to the destination file
+						output = codecs . open ( new_path, "a", encoding = "utf-8" )
+					else:
+						# otherwise we rewrite the destination file
+						output = codecs . open ( new_path, "w", encoding = "utf-8" )
+					limit = limit + 1
+
 				line = line . strip ()
 				url = self . buildUrl ( lang, line )
 				if not url:
 					continue
 				output . write ( url + "\r\n" )
-			output . close ()
+				line_count = line_count + 1
 			if self . _verbose:
-				print ( "Saved to \"%s\"" % destination_path )
+				if limit:
+					print ( "%d files generated in directory \"%s\"" % ( limit, save_path ) )
+					print ( "%d lines saved totally" % line_count )
+				else:
+					print ( "%d lines saved in file \"%s\"" % ( line_count, new_path ) )
+			output . close ()
 			name = rawfile . name
 			rawfile . close ();
 			os . remove ( name )
@@ -302,12 +339,12 @@ def main ( argv = None ):
 		opts, args = getopt.getopt(
 			argv[1:], "hal:d:n:u:cv", [
 				"help", "all", "languages=", "directory=",
-				"name=", "url=", "console", "skip", "update" ])
+				"name=", "url=", "console", "skip", "update", "limit=" ])
 	except getopt.GetoptError:
 		print ( "Usage: " + sys.argv[0] + \
 			" [-h|--help, -a|--all, " + \
 			"--directory|-d <dir>, --name|-n <file>, " + \
-			"--console|-c, --build_url|-u, --languages|-l <list>, --skip]" )
+			"--console|-c, --build_url|-u, --languages|-l <list>, --skip, --limit <n>]" )
 		return 0
 	for opt, arg in opts:
 		if opt in ('-h', '--help'):
@@ -325,6 +362,7 @@ def main ( argv = None ):
 			print ( "	-q				quiet" )
 			print ( "	--skip				skip non existing urls" )
 			print ( "	--update			skip files which has been already downloaded, works if at least on of -n or -d is parameterized" )
+			print ( "	--limit <n>			split the target file into files after each <n-th> line" )
 			print ( "" )
 			print ( "	Note that by -d, -n, -u, \"%(0)s\" can be used to replace current processed language" )
 			return 0
@@ -344,6 +382,8 @@ def main ( argv = None ):
 			options [ "skip" ] = True
 		elif opt == "--update":
 			options [ "update" ] = True
+		elif opt == "--limit":
+			options [ "split_files" ] = arg
 		elif opt in ("--languages", "-l"):
 			l = arg . split ( "," )
 			l = [ lg.strip() for lg in l ]

@@ -23,7 +23,7 @@ Supported languages:
 - no
 - nn - kryštof
 - fi
-- cs - michal
+- cs - done -michal 
 - sk
 - da
 - bg

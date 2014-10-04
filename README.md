@@ -20,7 +20,7 @@ Supported languages:
 - uk
 - zh
 - ca
-- no
+- no - michal
 - nn - kryštof
 - fi
 - cs - done -michal 

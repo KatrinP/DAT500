@@ -23,7 +23,7 @@ Supported languages:
 - no - michal
 - nn - kryštof
 - fi
-- cs - done -michal 
+- cs - done - 1,49GB  michal 
 - sk
 - da
 - bg

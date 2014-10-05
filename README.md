@@ -29,3 +29,5 @@ Supported languages:
 - bg
 - cy # welsh
 - ur # urdu 
+======
+100-300MB mame svk,slo,ro,pl,nl,it,ilo,hr,da,br

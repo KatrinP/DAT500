@@ -11,7 +11,7 @@ Supported languages:
 - nl
 - de
 - fr
-- ru
+- ru - michal
 - it
 - es
 - pl

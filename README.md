@@ -8,7 +8,7 @@ Supported languages:
 
 - en
 - sv
-- nl
+- nl - done
 - de
 - fr
 - ru - michal
@@ -22,13 +22,17 @@ Supported languages:
 - ca
 - no - michal
 - nn - kryštof
-- fi
-- cs - done - 1,49GB  michal 
-- sk - kryštof
-- da
+- fi - kryštof
+- cs - done - 1,49GB michal 
+- sk - done - 391 MB kryštof
+- da - done
 - bg
 - cy # welsh
 - ur # urdu 
 
-
-we have 100-300MB ~ svk,slo,ro,pl,nl,it,ilo,hr,da,br
+- slo - done
+- ro - done
+- it - done
+- ilo - done
+- br - done # bretonstina
+- hr - done # hrvatska

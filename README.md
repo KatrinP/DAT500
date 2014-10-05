@@ -20,11 +20,11 @@ Supported languages:
 - uk
 - zh
 - ca
-- no - kryštof
+- no - michal
 - nn - kryštof
 - fi
-- cs - michal
-- sk
+- cs - done - 1,49GB  michal 
+- sk - kryštof
 - da
 - bg
 - cy # welsh

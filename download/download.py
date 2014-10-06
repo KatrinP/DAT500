@@ -13,7 +13,7 @@
 #		./script.py --merge merge after threads are done
 #		./script.py --delete-after-merger delete thread files and leave only the merged one
 #		./script.py -c how many links should threads pick up on every loop
-#		./script.py --output cs --directory "./lng/" use different directory to store results
+#		./script.py --output . -n "%(lang)s" output will be in actual directory/<lang>
 #
 #
 # Input:
@@ -328,6 +328,9 @@ def main ( argv = None ):
 		print ( "	--threads|-t <number>		number of threads" )
 		print ( "	--number-of-links <number>	number of links processed by thread in a loop" )
 		print ( "" )
+		print ( "Examples:" )
+		print ( "	script.py --input ..\\languages\\nowiki\\ -t 8 --merge -c 500 -l nn" )
+		print ( "	script.py --input ..\\languages\\nowiki\\nn.links.txt.00000000.txt -t 8 --merge --delete-after-merge -c 20 -l nn" )
 
 
 	if not argv:

@@ -30,8 +30,8 @@ import bz2
 import tempfile
 import codecs
 import getopt
-
-
+import html.parser as HTMLParser
+import re
 
 class Download:
 	def __init__ ( self ):
@@ -60,13 +60,14 @@ class Download:
 						  "ur" 	# urdu 
 						  ]
 		self . _index_file = "http://dumps.wikimedia.org/%(0)swiki/latest/%(0)swiki-latest-pages-articles-multistream-index.txt.bz2"
-		self . _build_url = "http://%s.wikipedia.org/wiki/%s"
+		self . _build_url = "http://%(0)s.wikipedia.org/wiki/%(1)s"
 		self . _destination_dir = "./languages/%(0)swiki"
 		self . _destination_template = "%(0)s.links.txt"
 		self . _verbose = True
 		self . _skip_non_existent = False
 		self . _update = False
 		self . _split_files = 50000
+		self . _HTMLparser = HTMLParser . HTMLParser ()
 
 	def options ( self, options = {} ):
 		if "languages" in options.keys():
@@ -198,7 +199,8 @@ class Download:
 			return None
 		article = article [ 2: ]
 		article = ":" . join ( article )
-		url = self . _build_url % ( lang, article )
+		url = self . _build_url % { "0" : lang, "1" : article }
+		url = re . sub ( r'(&.+?;)', lambda m: self . _HTMLparser . unescape ( m . group () ), url )
 		# url = urllib . quote ( url )
 		return url
 

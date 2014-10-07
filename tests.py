@@ -14,6 +14,9 @@ def createTestFile(inputFileName, outputFileName):
     str = str.replace('. ', '.')  # i dont want to start lines with space
     str = str.replace('\r\n', '')
     str = str.replace('\n', '')
+    str = str.replace('"', ' ')
+    str = str.replace(';', '.')
+    str = str.replace('  ', ' ')
     str = str.replace('\r', '')
     output = str.split('.')
     for outText in output:

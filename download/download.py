@@ -80,7 +80,7 @@ class DownloadWiki:
 		self . _bytes = 0;
 		self . _readBytes = 0;
 		self . _counter = 0;
-		self . _wiki = Wikipedia ( lang ) 
+        self._wiki = Wikipedia(lang)
 
 
 		self . _linkFiles = []
@@ -134,8 +134,8 @@ class DownloadWiki:
 			Check if @param s is a type of str
 		"""
 		return isinstance ( s, type( str () ) )
-		
-	def addReadBytes ( self, b ):
+
+    def addReadBytes ( self, b ):
 		self . _locker . acquire ();
 		self . _readBytes = self . _readBytes + b
 		self . _locker . release ();
@@ -178,9 +178,10 @@ class DownloadWiki:
 		elif ( duration > 3600 ):
 			mode = 'h'
 			duration = duration / 3600
-		sys . stdout . write ( "\r%d%% [%d/%d] (%d) %.4f l/s. Remaining %.2f%c." % ( int(self . readBytes()*100/self.bytes()), 
-																			    self . readBytes(), 
-																			    self . bytes(),
+        sys.stdout.write(
+            "\r%d%% [%d/%d] (%d) %.4f l/s. Remaining %.2f%c." % ( int(self.readBytes() * 100 / self.bytes()),
+                                                                  self.readBytes(),
+                                                                  self . bytes(),
 																			    self . counter(),
 																			    self . speed(),
 																			    duration,
@@ -231,7 +232,7 @@ class DownloadWiki:
 				if not self . _outputPathDirectory:
 					self . _outputPathDirectory = inputPath [ :inputPath . rfind ( self . _delim ) ]
 					if len ( self . _outputPathDirectory ) > 0 and self . _outputPathDirectory [ -1 ] == self . _delim:
-						self . _outputPathDirectory = self . _outputPathDirectory [ :-1 ] 
+                        self._outputPathDirectory = self._outputPathDirectory[:-1]
 				inputPath = [ inputPath ]
 			else:
 				try:
@@ -248,7 +249,7 @@ class DownloadWiki:
 		inputPath = self . files ( inputPath )
 
 		if not self . is_list ( inputPath ):
-			raise Exception ( "Fatal error. Download (): invalid argument" )	
+            raise Exception("Fatal error. Download (): invalid argument")
 
 		if len ( inputPath ) <= 0:
 			raise Exception ( "Fatal error. Download (): invalid argument. No files." )

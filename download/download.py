@@ -135,7 +135,7 @@ class DownloadWiki:
 		"""
 		return isinstance ( s, type( str () ) )
 
-    def addReadBytes ( self, b ):
+    def addReadBytes(self, b):
 		self . _locker . acquire ();
 		self . _readBytes = self . _readBytes + b
 		self . _locker . release ();
@@ -181,8 +181,8 @@ class DownloadWiki:
         sys.stdout.write(
             "\r%d%% [%d/%d] (%d) %.4f l/s. Remaining %.2f%c." % ( int(self.readBytes() * 100 / self.bytes()),
                                                                   self.readBytes(),
-                                                                  self . bytes(),
-																			    self . counter(),
+                                                                  self.bytes(),
+                                                                  self . counter(),
 																			    self . speed(),
 																			    duration,
 																			    mode ) )

@@ -280,7 +280,7 @@ class DownloadWiki:
 		print ( "Exiting" )
 
 	def merge ( self ):
-        folder = self._outputPathDirectory + self._delim + self._outputPath % {"lang": self._lang}
+        folder = self._outputPathDirectory + self._delim + self._outputPath % {"0": self._lang}
 		files = os . listdir ( folder )
 
 		merged_name = self . _lang + ".txt"

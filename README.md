@@ -12,7 +12,7 @@ Supported languages:
 - fr
 - ru - michal
 - it
-- es
+- es - kryštof
 - pl
 - ja
 - pt

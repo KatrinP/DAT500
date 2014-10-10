@@ -24,7 +24,7 @@ Supported languages:
 - fi - kryštof
 - cs - done - 1,49GB michal 
 - sk - done - 391 MB kryštof
-- bg
+- bg - kryštof
 - cy # welsh
 - ur # urdu 
 

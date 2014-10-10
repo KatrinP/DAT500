@@ -19,7 +19,7 @@ Supported languages:
 - uk
 - zh
 - ca
-- no - michal
+- no - michal 1,52GB
 - nn - kryštof
 - fi - kryštof
 - cs - done - 1,49GB michal 

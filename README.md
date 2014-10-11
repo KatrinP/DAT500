@@ -16,7 +16,7 @@ Supported languages:
 - pl - kryštof
 - ja
 - pt
-- uk
+- uk - kryštof
 - zh
 - ca
 - no - michal 1,52GB

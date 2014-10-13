@@ -12,19 +12,19 @@ Supported languages:
 - fr
 - ru - michal
 - it
-- es
-- pl
+- es - kryštof
+- pl - kryštof
 - ja
 - pt
-- uk
+- uk - kryštof
 - zh
 - ca
-- no - michal
+- no - michal 1,52GB
 - nn - kryštof
 - fi - kryštof
 - cs - done - 1,49GB michal 
 - sk - done - 391 MB kryštof
-- bg
+- bg - kryštof
 - cy # welsh
 - ur # urdu 
 

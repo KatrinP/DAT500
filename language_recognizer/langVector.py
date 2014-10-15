@@ -2,8 +2,125 @@ import pickle
 import os
 import sys
 import collections
+import ijson as ijson
+import json
+import re
+import operator
 
-import language_recognizer . ngrams
+import ngrams
+
+class Vector:
+    def __init__  ( self, vector_file ):
+        self . _vector_file = vector_file
+        self . _changed = False
+        self . _vectors = {}
+        self . loadVector ()
+
+    def __enter__ ( self ):
+        return self
+    def __exit__ ( self, exct_type, exce_value, traceback ):
+        self . save ()
+
+    def save ( self ):
+        if not self . _changed:
+            return
+        #with open ( self . _vector_file, "wb") as f:
+        #    pickle.dump(self . _vectors, f) 
+        with open ( self . _vector_file, "w", encoding = "utf-8" ) as f:
+            for language in self . _vectors . keys ():
+                for i, ngrams in enumerate ( self . _vectors [ language ] [ "ngrams" ] ):
+                    nd = {}
+                    for key in ngrams . keys ():
+                        nd [ str ( key ) ] = ngrams [ key ]
+                    self . _vectors [ language ] [ "ngrams" ] [ i ] = nd
+
+            json . dump ( self . _vectors, f, indent = 1 )
+
+    def vectors ( self ):
+        return self . _vectors
+
+    def __iter__ ( self ):
+        return self . _vectors . __iter__ ()        
+
+    def loadVector ( self ):
+        if not os.path.isfile( self . _vector_file ) or not os.stat( self . _vector_file ).st_size > 0:
+            return
+
+        with open ( self . _vector_file, encoding = "utf-8" ) as inputFile:
+            self . _vectors = json . load ( inputFile )
+            for language in self . _vectors . keys ():
+                for i, ngrams in enumerate ( self . _vectors [ language ] [ "ngrams" ] ):
+                    nd = {}
+                    for key in ngrams . keys ():
+                        nd [ eval ( key ) ] = ngrams [ key ]
+                    self . _vectors [ language ] [ "ngrams" ] [ i ] = nd
+
+    def fillResult ( self, result, ngrams_sum ):
+        for i, ngram in enumerate ( ngrams_sum ):
+            result [ "count" ] . append ( sum ( ngram . values () ) )
+
+
+        result [ "total" ] = [ 0 for x in ngrams_sum ]
+        for vector in self . _vectors . keys ():
+            for i, ngram in enumerate ( self . _vectors [ vector ] [ "count" ] ):
+                result [ "total" ] [ i ] += ngram
+        for i, ngram in enumerate ( result [ "count" ] ):
+            result [ "total" ] [ i ] += ngram
+
+        result [ "ngrams" ] = ngrams_sum
+
+
+        for i, ngram in enumerate ( ngrams_sum ):
+            #probability = ngram_prop_func [ i ] ( ngram )
+            probability = ngrams . probability2 ( result, i + 1 )
+            #print ( probability )
+            for k in list ( ngram . keys() ):
+                if k not in probability:
+                    del ngram [ k ]
+                    continue
+                ngram [ k ] = ( probability [ k ], ngram [ k ] )
+
+        result [ "ngrams" ] = ngrams_sum
+
+        return result              
+
+    def addVector ( self, language, source_file, plainText = False, fullFormat = False ):
+        self . _changed = True
+        if language in self . _vectors . keys ():
+            del self . _vectors [ language ]
+        ngrams_sum = [ {}, {}, {} ]
+        result = { "count": [],
+                   "ngrams": [],
+                   "total": [] }
+        with open ( source_file, encoding = "utf-8" ) as inputFile:
+            if plainText:
+                s = 0
+                for line in inputFile:
+                    sys . stderr . write ( "%d\n" % ( s ) )
+                    s = s + 1
+                    line = re . sub ( "\r", "\n", line )
+                    line = re . sub ( "\n\n", "\n", line )
+                    for i, ngram in enumerate ( ngrams_sum ):
+                        extracted_grams = ngrams . count_ngrams ( line, i + 1 )
+                        combined = [ extracted_grams, ngrams_sum [ i ] ]
+                        ngrams_sum [ i ] = sum((collections.Counter(dict(lines)) for lines in combined), collections.Counter())
+
+                result [ "ngrams" ] = ngrams_sum
+                result = self . fillResult ( result, ngrams_sum )               
+            else:
+                if fullFormat:
+                    result = json . load ( inputFile )
+                else:
+                    # only list of ngrams with their count
+                    ngrams_sum = json . load ( inputFile )
+                    result = self . fillResult ( result, ngrams_sum )       
+
+
+        #print ( result )
+        self . _vectors [ language ] = result
+        print ( "I have learned " + language + "!" )
+
+
 
 
 
@@ -39,7 +156,50 @@ def add_language_vector(language, source_file, vector_file):
     return
 
 
+
 def load_vector(vector_file):
+    """
+    Not finished memory-safe loading
+
+    def memory():
+        # LINUX
+        import resource
+        resource.getrusage(resource.RUSAGE_SELF).ru_maxrss / 1000
+    language = None
+    key = None
+    nest = 0
+    if os.path.isfile(vector_file) and os.stat(vector_file).st_size > 0:
+        with open  ( vector_file, "rb" ) as inputFile, open ( "read.txt", "w", encoding = "utf-8" ) as out:
+            parser = ijson . parse ( inputFile )
+            for prefix, event, value in parser:
+                if ( prefix, event, value ) == ( '', 'start_map', None ):
+                    print ( "Start processing the file" )
+                elif ( prefix, event ) == ( '', 'map_key' ):
+                    language = value
+                    vectors [ language ] = [ {}, {}, {} ]
+                elif ( prefix, event ) == ( language, "start_array" ):
+                    print ( "Starting processing the language %s" % language )
+                elif language and ( prefix, event ) == ( "%s.item" % language, "start_map" ):
+                    pass
+                elif language and ( prefix, event ) == ( "%s.item" % language, "end_map" ):
+                    nest = nest + 1
+
+                elif language and ( prefix, event ) == ( "%s.item" % language, "map_key" ):
+                    key = value
+                elif language and key and ( prefix, event ) == ( "%s.item.%s" % ( language, key ), "number" ):
+                    probability = float ( value )
+                    vectors [ language ] [ nest ] [ key ] = probability
+                    key = None
+                elif ( prefix, event ) == ( language, "end_array" ):
+                    print ( "Finishing processing the language %s" % language )
+                    language = None
+                    #print ( memory () )
+                    nest = 0
+                elif ( prefix, event, value ) == ( '', 'end_map', None ):
+                    print ( "Finishing processing the file" )    
+    #print ( repr ( vectors ) . encode ( "utf-8" ) )
+    """
+
     if os.path.isfile(vector_file) and os.stat(vector_file).st_size > 0:
         with open(vector_file, "rb") as f:
             vectors = pickle.load(f)
@@ -50,4 +210,19 @@ def load_vector(vector_file):
             "File with language vectors was empty or didn't exist. New empty set of vectors will be created. OK? (Y/n): ")
         if user_answer.lower() == "n":
             sys.exit("Work without any vector file is not possible, sorry!")
+
+
+    nd = {}
+    for lang in vectors.keys():
+        nd [ lang ] = []
+        i = 0
+        for ngrams in vectors[lang]:
+            nd [ lang ] . append ( {} )
+            for k in ngrams.keys():
+                nk = "" . join ( k )
+                nd [ lang ] [ i ] [ nk ] = ngrams [ k ]
+            i = i + 1
+    f = open ( "dump.txt", "w", encoding = "utf-8" )
+    json.dump(nd, f)
+    f.close()
     return vectors

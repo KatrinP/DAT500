@@ -2,7 +2,7 @@
 
 import re
 import json
-import urllib.request as urllib
+import urllib as urllib
 import codecs
 
 class WikipediaError(Exception):
@@ -21,17 +21,19 @@ class Wikipedia:
         #request.add_header('User-Agent', 'Mozilla/5.0')
         
         try:
-            result, headers = urllib.urlretrieve(url)
+            result = urllib.urlopen(url)
         except urllib.HTTPError as e:
             raise WikipediaError(e.code)
         except urllib.URLError as e:
             raise WikipediaError(e.reason)
         
-        return codecs . open ( result, "r", encoding = "utf-8" )
+        return result
+        #codecs . open ( result, "r", encoding = "utf-8" )
     
     def article(self, article):
         url = self.url_article % (self.lang, urllib.quote(article))
-        content = self.__fetch(url).read()
+        content = self.__fetch(url).read().decode ( "utf-8" )
+
         if content.upper().startswith('#REDIRECT'):
             match = re.match('(?i)#REDIRECT \[\[([^\[\]]+)\]\]', content)
             

@@ -27,12 +27,12 @@ Supported languages:
   no | michal 1,52GB                  | ✓          | X  
   nn | kryštof                        | X          | X   
   pl | kryštof                        | ✓          | ✓   
-  pt | X                              | X          | X  
+  pt | kryštof                        | X          | X  
   ro | done - 225                     | X          | X   
   ru | michal                         | X          | X           
   sk | done - 391 MB kryštof          | ✓          | ✓   
   slo| - done - 232                   | X          | X  
-  sv | X                              | X          | X    
+  sv | kryštof                        | X          | X    
   uk | kryštof                        | X          | X   
   ur | urdu                           | X          | X   
   zh | X                              | X          | X   

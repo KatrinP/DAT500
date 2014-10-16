@@ -6,8 +6,8 @@ Repository for Data-Intensive systems course
 Supported languages:
 ======
 
-  language | status             | size       | Rhymes     | newspapes/wiki   
-  ---|--------------------------|------------|---------------
+  ln | status                   | size       | Rhymes     | newspapes/wiki   
+  ---|--------------------------|------------|------------|------------------------------
   bg | kryštof                  |            | ✓          | ✓ 
   br | done # bretonstina -     | 137MB      | X          | X   
   ca | X                        |            | X          | X   

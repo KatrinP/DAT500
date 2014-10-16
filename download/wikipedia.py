@@ -2,7 +2,7 @@
 
 import re
 import json
-import urllib as urllib
+import urllib.request as urllib
 import codecs
 
 class WikipediaError(Exception):

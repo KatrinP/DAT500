@@ -78,8 +78,8 @@ class DownloadThread ( threading . Thread ):
 				for link in links:
 					self . _wiki . addCounter ( 1 )
 					self . _wiki . addReadBytes ( len ( link . encode ( "utf-8" ) ) + len ( self . _pagebreak .encode ( "utf-8" ) ) )
-					raw = self . _wiki . wiki () . article ( link )
 					try:
+						raw = self . _wiki . wiki () . article ( link )
 						plain = Wiki2Plain ( raw )
 						outputFile . write ( plain . text )
 						outputFile . write ( self . _pagebreak + self . _pagebreak )

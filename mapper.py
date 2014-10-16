@@ -1,5 +1,6 @@
 #!/usr/bin/env python
 import sys
+import re
 
 def make_ngrams(plain_text, n, split = lambda x: list ( x ) ):
     ngram_array = []
@@ -46,10 +47,19 @@ def count_ngrams(plain_text, n, split = lambda x: list ( x ) ):
 
 
 for line in sys.stdin: # read input from STDIN
-  line = line.strip() # remove leading and trailing whitespace
-  ngrams = count_ngrams(line,1);
+    #line = line.strip() # remove leading and trailing whitespace
+    line = re . sub ( "\r", "\n", line )
+    line = re . sub ( "\n\n", "\n", line )
+    #
+    #
+    #   if we use count_ngrams ( line, 1, lambda x: x . split () )
+    #   we are making ngrams from whole words
+    #   By default is using lambda x: list ( x ) which splits string to characters 
+    #
 
-  for elem in ngrams.keys():
-	print '%s\t%s' % ( str ( elem ), ngrams[elem])
+    ngrams = count_ngrams( line, 1 );
+
+    for elem in ngrams.keys():
+        print ( '%s\t%s' % ( str ( elem ), ngrams[elem] ) )
 
 

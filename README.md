@@ -15,8 +15,8 @@ Supported languages:
   cy | welsh                          | X          | X            | X   |   X| X
   da | done - 277                     | X          | X             | X  |  X | X
   de | X                              | ✓          | ✓            |X   |  X |  X
-  en | X                              | ✓          | X            | X   |  X| X
-  es | kryštof                        | ✓          | ✓            | X  |  X| X
+  en | X                              | ✓          |  ✓           | X   |  X| X
+  es | kryštof                        | X          | ✓            | X  |  X| X
   fi | kryštof                        | ✓          | ✓            | X  |  X| X
   fr | X                              | X          | X             | X  |  X| X
   hr | done # hrvatska - 225          | ✓          | ✓            | X  |   X| X

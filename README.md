@@ -9,7 +9,7 @@ Supported languages:
   language | person                   | Rhymes     | newspapes/wiki| un | bi | tri
   ---|--------------------------------|------------|---------------|----|----|-------
   bg | kryštof                        | ✓          | ✓             | X |  X |  X
-  br | done # bretonstina - 137       | X          | X             | X  |  X | X
+  br | done # bretonstina - 137       | X          | ✓              | X  |  X | X
   ca | X                              | X          | X             | X  |  X| X
   cs | done - 1,49GB michal           | ✓          | ✓            | X  |  X |  X
   cy | welsh                          | X          | X            | X   |   X| X

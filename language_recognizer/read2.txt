@@ -1,0 +1,1 @@
+Your sentence: Given sentence is in czech (with 50.0 % probability)

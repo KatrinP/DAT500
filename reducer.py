@@ -12,7 +12,7 @@ for line in sys.stdin: # read input from STDIN
   try:
     ngram, count = line.split('\t', 1) # parse the input we got from email_count_mapper.py, two words, tab delimited
   except:
-    print "error: ", line
+    print ( "error: " + line )
     continue
   try: # convert count from str to int, if not possible discard this input
     count = int(count)
@@ -23,10 +23,10 @@ for line in sys.stdin: # read input from STDIN
     current_count += count #if email domain hasn't changed continue counting its occurances
   else:
     if current: #if email domain has changed output count for previous email domain to STDOUT and start counting for new email domain
-      print '%s\t%s' % (current, current_count)
+      print ( '%s\t%s' % (current, current_count) )
     current_count = count
     current = ngram
 
 # output the last email domain
 if current == ngram:
-  print '%s\t%s' % (current, current_count)
+  print ( '%s\t%s' % (current, current_count) )

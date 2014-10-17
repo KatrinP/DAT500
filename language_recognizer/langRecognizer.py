@@ -1,33 +1,74 @@
 import operator
 import collections
 import sys
+import math
+import getopt
 
-import language_recognizer . ngrams as ngrams
-import language_recognizer . langVector
+import ngrams as ngrams
+import langVector
 
 
+
+
+
+def smoothing ( string, vector, n ):
+    def occurence ( string, vector, n ):
+        if n < 0:
+            return 0
+        
+        #print ( "\t\t%s in vector[%d]" % ( repr ( string ), n - 1) )
+        if string in vector [ "ngrams" ] [ n - 1 ] . keys ():
+            return vector [ "ngrams" ] [ n - 1 ] [ string ] [ 1 ]
+
+        return occurence ( string [ 1:], vector, n - 1 )
+
+
+    up = 1
+    #print ( "occurence: " )
+    #print ( "\t%s" % repr ( string ) ) 
+    up = up + occurence ( string [ 1: ], vector, n - 1 )
+
+    #print ( "occurence: " + str ( up ) )
+
+    if n < 0:
+        n = 0
+
+    total = vector [ "count" ] [ n - 1 ] * vector [ "total" ] [ n - 1 ] + 1
+
+    return -math . log ( up / total, 10 )
 
 
 # MAYBE: improve the command line arguments???
 
 # constants:
-smoothing_rate = 1.5
+smoothing_rate = 1
 ngram_rate = 1
 number_of_ngrams = 3
 
 #count a score for sentence from vector of a language ~ probability for ngrams in the language (suma of logarithms)
-def count_ngram_score(sentence, vector, n):
+def count_ngram_score(sentence, vector, n ):
     score = 0
-    ngrams_array = ngrams.make_ngrams(sentence, n)
-
+    ngrams_array = ngrams.make_ngrams(sentence, n )
+    #print ( ngrams_array )
+    #print ( ngrams_array )
     #smoothing - for ngrams which don't appear in vector of language
     #set the worst (max) value in lang vector
-    smoothing = max(vector[n - 1].items(), key=operator.itemgetter(1))[0]
+    ngram_prop_func = [ ngrams.probability, ngrams.probability_of_bigram, ngrams.probability_of_trigram ]
+    #smoothing = max(vector [ "ngrams" ] [n - 1].items(), key=operator.itemgetter(1))[0]
+    #print ( smoothing )
     for ngram in ngrams_array:
-        if ngram in vector[n - 1]:
-            score += vector[n - 1][ngram]
+        #ngram = "" . join ( ngram )
+        #print ( repr ( vector[ "ngrams" ]  [ n - 1 ] ))
+        if ngram in vector[ "ngrams" ] [n - 1]:
+            #print ( str ( vector[ "ngrams" ] [n - 1][ngram] ) )
+            #print ( "hit")
+            score += vector[ "ngrams" ] [n - 1][ngram][0] # 0 - prob
         else:
-            score += vector[n - 1][smoothing] / smoothing_rate
+            #continue
+            #print ( "not hit" )
+            
+            score += smoothing ( ngram, vector, n )
+
     return score
 
 
@@ -35,24 +76,47 @@ def count_ngram_score(sentence, vector, n):
 def recognize_language(sentence, vectors, n):
     scores = []
 
+    #print ( repr ( scores ) )
+    #result for uni/bi/trigrams - 0 ~ uni etc.
+    winners_for_ngram = []  #remebers which language was the best for uni, bi and trigram
+    detected_languages = collections.defaultdict(int)  #key = best lang for some ngram, value is number (countet rate)
+
     #score is list which contents a dictionary for each ngram.
     #Key in dict is language, value is the for for given sentence
     for i in range(0, n):
         scores.append({})
+        smoothing = 0
+        #for language in vectors.keys():
+        #    m = max(vectors[language][i].items(), key=operator.itemgetter(1)) [ 1 ]
+        #    if m > smoothing:
+        #        smoothing = m
         for language in vectors.keys():
+            #print ( "for language: " + language )
+            #print ( "pro " + str ( i + 1 ) + " gramy jazyka: " + language )
             scores[i][language] = count_ngram_score(sentence, vectors[language], i + 1)
-
-    #result for uni/bi/trigrams - 0 ~ uni etc.
-    winners_for_ngram = []  #remebers which language was the best for uni, bi and trigram
-    detected_languages = collections.defaultdict(int)  #key = best lang for some ngram, value is number (countet rate)
-    for i in range(0, n):
+            #print ( "result: " + str ( scores [ i ] [ language ] ) ) 
         #find the language with lowes score for i-gram
-        best_language = min(scores[i].items(), key=operator.itemgetter(1))[0]
+        #print ( "items" )
+        #print ( scores [ i ] . items () )
+        #print ( "min" )
+        #print ( min(scores[i].items(), key=operator.itemgetter(1)) )
+        best_language = min(scores[i].items(), key=operator.itemgetter(1))
+
+        #print ( smoothing )
+        if len ( scores[i].items() ) == len ( [ o for o in scores[i].items() if o [1] == best_language[1] ] ) and len ( scores[i].items() ) != 1:
+            continue
+        best_language = best_language [ 0 ]
+        
+        #print ( best_language )
         #ngram_rate tell us how much more important is the result by trigram then by unigram etc.
         #notice and add rate if for ngram is the language the best
         detected_languages[best_language] += (i + 1) * ngram_rate
         winners_for_ngram.append(best_language)
 
+
+
+
+    #print ( repr ( detected_languages  ))
     final_language = find_the_best(detected_languages, winners_for_ngram, n)
     #count probability of our result
     probability = detected_languages[final_language] / sum(detected_languages.values())
@@ -85,9 +149,63 @@ def find_the_best(detected_languages, winners_for_ngram, n):
     return final_language
 
 
-#main:
-if __name__ == "__main__":
-    #command line inputs and default setting od vectors file
+def main ( argv = None ):
+
+    def usage ():
+        print ( "Usage: " + sys.argv[0] + " [options] <sentence[, sentence2, ...]" )
+        print ( "" )
+        print ( "Options:" )
+        print ( "   --help|-h               show this help message and exit" )
+        print ( "   --l <lang>              set the language of new vector" )
+        print ( "   --add-vector <file>     make and add vector from file <file>" )
+        print ( "   --vectors|-v <file>     set the vectors file" )
+        #print ( "" )
+        #print ( "Examples:" )
+        #print ( "   script.py --input ..\\languages\\nowiki\\ -t 8 --merge -c 500 -l nn" )
+        #print ( "   script.py --input ..\\languages\\nowiki\\nn.links.txt.00000000.txt -t 8 --merge --delete-after-merge -c 20 -l nn" )
+
+
+
+
+
+    if not argv:
+        argv = sys . argv
+
+    filename = None
+    language = None
+    sentences = []
+
+    if argv is None:
+        argv = sys.argv
+    try:
+        opts, args = getopt.getopt(
+            argv[1:], "hv:l:", [
+                "help", "add-vector=", "vectors=" ])
+    except getopt.GetoptError:
+        usage ()
+        return 0
+    for opt, arg in opts:
+        if opt in ('-h', '--help'):
+            usage ()
+            return 0
+        elif opt == "--add-vector":
+            filename = str ( arg )
+        elif opt == "-l":
+            language = str ( arg )
+        elif opt in ( "--vectors", "-v" ):
+            vector_file = str ( arg )
+        else:
+            assert False, "Fatal error. Bad option."
+
+
+    sentences = [ a for a in args if a ]
+
+    if len ( sentences ) <= 0:
+        raise Exception ( "Fatal error. No sentence." )
+
+    if ( filename and not language ) or \
+       ( not filename and language ):
+       raise Exception ( "Fatal error. Options --add-vector and -l has to be set together" )     
 
     if len(sys.argv) > 2:
         sentence = sys.argv[1]
@@ -99,8 +217,37 @@ if __name__ == "__main__":
         sentence = input("Your sentence: ")
         vector_file = "language_vector.p"
 
-    vectors = langVector.load_vector(vector_file)
-    language, probability = recognize_language(sentence, vectors, number_of_ngrams)
-    print("Given sentence is in",language, "(with", probability*100, "% probability)")
+    #sentence = open ( "input.txt", "r", encoding = "utf-8" ) . read ()
 
-    sys.exit(0)
+    with langVector . Vector ( "vec.json" ) as lv:
+        if filename and language:
+            lv . addVector ( language, filename, plainText = True )
+        #lv . addVector ( "english", "trait/english.txt", plainText = True)
+        #lv . addVector ( "urdu", "trait/urdu.txt", plainText = True)
+        #lv . addVector ( "czech", "trait/czech.txt", plainText = True)
+        #lv . addVector ( "polish", "trait/polish.txt", plainText = True)
+        #lv . addVector ( "german", "trait/german.txt", plainText = True)
+        #lv . addVector ( "norwegian", "trait/bokmal.txt", plainText = True)
+        #lv . addVector ( "nynorsk", "trait/nynorsk.txt", plainText = True)
+        #lv . addVector ( "german", "input.txt", plainText = True)
+
+
+        #vectors = langVector.load_vector(vector_file)#vector_file
+        vectors = lv . vectors ()
+        #sys . exit ( 0 )
+
+        for sentence in sentences:
+            language, probability = recognize_language(sentence, vectors, number_of_ngrams)
+            print("Given sentence is in",language, "(with", probability*100, "% probability)")
+
+
+
+    return 0
+
+
+#main:
+if __name__ == "__main__":
+    #command line inputs and default setting od vectors file
+
+
+    sys.exit( main () )

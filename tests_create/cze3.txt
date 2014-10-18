@@ -1,0 +1,81 @@
+Real-time clock (zkráceně RTC), česky hodiny reálného času, jsou počítačové hodiny (většinou ve formě integrovaného obvodu), které udržují údaj o aktuálním čase. Přestože tento termín je známý především z počítačů nebo serverů, používá se v jakékoliv elektronice, která používá přesný čas.
+
+Obsah
+
+ Reference
+
+Termín
+Tento termín se používá, aby nedošlo k záměně s tzv. hardwarovými hodinami, které řídí chod digitální elektroniky a nepočítají čas v lidských jednotkách.
+Účel
+Používání RTC má výhody:
+Nízkou spotřebu (zvláště, když RTC běží na baterie)Osvobozuje operační systém od počítání času.Někdy je přesnější než ostatní metody (ačkoli počítačové RTC je často nepřesné)GPS navigacím umožňuje zkrátit start a hledání signálu porovnáním času RTC s časem družice
+Napájení
+RTC je napájeno lithiovými bateriemi. Obrázky, zvuky či videa k tématu Real-time clocks ve Wikimedia Commons
+Reference
+V tomto článku byl použit překlad textu z článku Real-time_clock na anglické Wikipedii.
+
+Tento článek je příliš stručný nebo postrádá důležité informace.
+Pomozte Wikipedii tím, že jej vhodně rozšíříte. Nevkládejte však bez oprávnění cizí texty.
+RTC integrovaný obvod.
+
+
+Real-time clock (zkráceně RTC), česky hodiny reálného času, jsou počítačové hodiny (většinou ve formě integrovaného obvodu), které udržují údaj o aktuálním čase. Přestože tento termín je známý především z počítačů nebo serverů, používá se v jakékoliv elektronice, která používá přesný čas.
+
+Obsah
+
+
+
+Termín
+Tento termín se používá, aby nedošlo k záměně s tzv. hardwarovými hodinami, které řídí chod digitální elektroniky a nepočítají čas v lidských jednotkách.
+Účel
+Používání RTC má výhody:
+Nízkou spotřebu (zvláště, když RTC běží na baterie)Osvobozuje operační systém od počítání časuNěkdy je přesnější než ostatní metody (ačkoli počítačové RTC je často nepřesné)GPS navigacím umožňuje zkrátit start a hledání signálu porovnáním času RTC s časem družice
+Napájení
+RTC je napájeno lithiovými bateriemi. Obrázky, zvuky či videa k tématu Real-time clocks ve Wikimedia Commons
+Reference
+V tomto článku byl použit překlad textu z článku Real-time_clock na anglické Wikipedii.
+
+Tento článek je příliš stručný nebo postrádá důležité informace.
+Pomozte Wikipedii tím, že jej vhodně rozšíříte. Nevkládejte však bez oprávnění cizí texty.
+Big Mac
+
+
+Big Mac index neboli hamburgerový index je srovnání cen sendviče Big Mac společnosti McDonald's v různých zemích. Vytváří jej časopis The Economist již od roku 1986. Tento ekonomický ukazatel vychází z teorie parity kupní síly, podle níž by identické výrobky měly po přepočtu měnovým kurzem v různých zemích stát stejně. Proto lze srovnáním místních cen Big Macu ukázat cenové hladiny v jednotlivých státech světa. Díky tomu lze zjistit případné nadhodnocení či podhodnocení měnového kurzu. Big Mac byl pro tento účel vybrán proto, že je prodáván celosvětově identickým postupem.
+Například v červenci 2008 byla česká koruna Big Mac indexem označena za nadhodnocenou což se potvrdilo depreciací koruny v následující měsících. K 19 lednu 2009 již byla podle aktuálního indexu koruna podhodnocena.
+
+Trenér fotbalové reprezentace Pavel Vrba může pro fanoušky vyhrát tisíce piv, pokud Česko v následujících dvou kvalifikačních zápasech urve čtyři body. Český národní tým nejprve hraje v pátek v Turecku, pak v pondělí v Kazachstánu. „Se čtyřmi body bych byl hodně spokojený,“ netajil Vrba.
+
+Jestli sázku vyhraje, každý dospělý divák, který v listopadu dorazí na plzeňský zápas Česko - Island, bude mít pivo zdarma. V opačném případě musí Vrba uvařit speciální várku.
+Musel jste o sázce s pivovarem Gambrinus hodně přemýšlet?
+Chvilku jsem uvažoval. Aby si lidi neříkali, jak jsem hloupý, že se sázím. Na druhou stranu si věřím, že fanoušky potěším. Vykopat pro ně tisíce piv, to je výzva. Jsem přesvědčený, že máme na to, abychom čtyři body uhráli.
+Můžete jich uhrát i šest. To byste dostal nějaký bonus?
+Možná bych si pak pro nějakou bečku dojel rovnou do pivovaru. Ale teď vážně: kdybychom uhráli čtyři body, byl by vstup do evropské kvalifikace výborný.
+Zvlášť po skvělém vítězství nad Nizozemskem by se hodilo bodovat i venku.
+V kvalifikaci je pod tlakem každý, to je fakt. My si pro začátek polepšili, Turci ne. I když všichni očekávají jejich postup na mistrovství Evropy, porážkou 0:3 na Islandu si přitížili. Budou pod tlakem, ale požene je vyprodaný stadion Fenerbahce. Padesát tisíc lidí.
+Loni v březnu jste na stadionu Fenerbahce zažil pravý opak. Při pohárovém utkání Plzně bylo kvůli disciplinárnímu trestu prázdno.
+Tehdy jsem si spíš stěžoval, na stadionu nesměli být fanoušci. Snad nebudu v pátek večer říkat: Škoda, že nebylo prázdno jako tehdy s Plzní. Ne, samozřejmě se těším, že bude plno, fotbal se přece hraje pro diváky.
+Vás nečeká jen turecké peklo, ale taky cestování přes několik časových pásem, dva zápasy za čtyři dny a nulový čas na regeneraci.
+Jeden den odpočinku mezi zápasy by nám pomohl, ale nedá se nic dělat. Musíme se přizpůsobit.
+Ale kuchaře si berete vlastního.
+Kvůli prevenci. Ne že bychom nedůvěřovali asijské kuchyni, budeme v nejlepších hotelech, jen nechceme nic riskovat. Kuchař dochutí jídla podle našich zvyků. Výkony může ovlivnit cokoli, musíme být připraveni.
+
+Šestadvacet dnů po nečekaném vítězství nad Nizozemskem (2:1) je fotbalová reprezentace zase pohromadě. "Chtělo by to, abychom tu výhru potvrdili v dalších zápasech," prohodil obránce Michal Kadlec, když v pondělí před polednem dorazil do pražského NH Hotelu na Smíchově.
+
+Češi budou výhru potvrzovat v pátek 10. října v Turecku a příští pondělí 13. října v Kazachstánu.
+Když se vrátí se šesti body, tak by to v součtu s triumfem nad Nizozemskem byl vysněný start do kvalifikace o mistrovství Evropy 2016.
+„Ani čtyři body by nebyly špatné, to bych byl hodně spokojen,“ řekl trenér Pavel Vrba.
+„Devět bodů, to by bylo super,“ podotkl Kadlec.
+Spokojen však být nemohl, když mu na soustředění dorazili dva zranění. Sparťanský záložník Lukáš Vácha nedohrál nedělní ligu proti Liberci, má silně zhmožděný kotník.
+„Dobré je, že vazy a kosti jsou v pořádku, problémem je pouze hematom.Uvidíme, jak rychle ustoupí. Věřím, že budu k dispozici, i když ani v úterý nepůjde trénovat,“ řekl Vácha.
+„V poslední době hraje ve slušné formě,“ upozornil Vrba.
+Pokud by se ukázalo, že se Vácha vyléčit nestihne, Vrba by povolal Tomáše Hübschmana z Jablonce.
+Fit není ani třetí gólman David Bičík, který sraz opustil, na pozici třetího brankáře Vrba povolal ostravského Jiřího Pavlenku, který byl ve výběru do 21 let.
+„Ani jsem si nestačil vybalit věci z tašky a hned jsem jel na jiný hotel. Navíc jsem o tom ještě neřekl ani rodině a kamarádům… Ale jsem za to strašně rád. Komu se poštěstí, aby ochutnal atmosféru v nároďáku,“ líčil Pavlenka nadšeně.
+Bičík má dlouhodobější potíže a reprezentační přestávku může využít k jejich vyléčení.
+
+„ Dává se do kupy před každým zápasem a v poslední době je to čím dál tím složitější,“ poznamenal kouč.
+V čase srazu na místě ještě nebyli kapitán Tomáš Rosický a stoper Tomáš Sivok. Oba byli na cestě ze svých zahraničních klubů z Londýna resp. z Istanbulu.
+Na fotbalisty během pár dnů čeká náročné cestování, dva zápasy v rozdílných klimatických podmínkách a nepříjemní soupeři.
+Turci v září utrpěli debakl na Islandu 0:3 a proti Čechům se musí vykoupit, aby neměli dusno. Kazachstán proti Lotyšsku (0:0) potvrdil, že i nedávní outsideři jsou schopní potrápit papírově lepší mužstvo.
+Podzimní část kvalifikace Češi zakončí listopadovým zápasem v Plzni proti Islandu.
+

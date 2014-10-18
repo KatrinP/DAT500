@@ -1,11 +1,14 @@
-#!/usr/bin/env python
+#!/usr/bin/python2.7
 
 from operator import itemgetter
 import sys
+import codecs
 
 current = None
 current_count = 0
 ngram = None
+
+sys.stdin = codecs.getreader("utf-8")(sys.stdin)
 
 for line in sys.stdin: # read input from STDIN
   line = line.strip() # remove leading and trailing whitespace
@@ -24,8 +27,9 @@ for line in sys.stdin: # read input from STDIN
   else:
     if current: #if email domain has changed output count for previous email domain to STDOUT and start counting for new email domain
       print ( '%s\t%s' % (current, current_count) )
-    current_count = count
-    current = ngram
+
+  current_count = count
+  current = ngram
 
 # output the last email domain
 if current == ngram:

@@ -167,7 +167,7 @@ class Download:
 			print ( "Decompressing %s" % inp . name )
 		chunks = 8192
 		readed = 0
-		with bz2.BZ2File ( inp, "rb" ) as input:
+		with bz2.BZ2File ( inp . name, "rb" ) as input:
 			while True:
 				data = input . read ( chunks )
 				if not data:

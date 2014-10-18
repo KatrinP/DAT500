@@ -1,9 +1,0 @@
-libs/*
-__pycache__/*
-composer.lock
-__init__.py
-tests/*
-tests_results/*
-tests_graphs/*
-tests_csv/*
-languages/*

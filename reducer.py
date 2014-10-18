@@ -28,8 +28,8 @@ for line in sys.stdin: # read input from STDIN
     if current: #if email domain has changed output count for previous email domain to STDOUT and start counting for new email domain
       print ( '%s\t%s' % (current, current_count) )
 
-  current_count = count
-  current = ngram
+    current_count = count
+    current = ngram
 
 # output the last email domain
 if current == ngram:

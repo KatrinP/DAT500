@@ -11,7 +11,7 @@ Supported languages:
   bg | done                           | X          |      X        |    |    |
   br | done # bretonstina - 137       |            | X             |    |    |  
   ca | X                              |            |               |    |    | 
-  cs | done - 1,49GB michal           | X          |   X           |    |    |
+  cs | done - 1,49GB                  | X          |   X           |    |    |
   cy | welsh                          |            |               |    |    | 
   da | done - 277                     |            |               |    |    | 
   de | X                              |X           | X             |    |    | 
@@ -22,19 +22,19 @@ Supported languages:
   hr | done # hrvatska - 225          |  X         | X             |    |    |
   it | done - 316                     |            |               |    |    | 
   ilo| done - 229                     |            |                |    |    | 
-  ja | X                              |            |                |    |    | 
-  nl | done - 74                      |            |              |    |    | 
-  no |  1,52GB                        | X          |   X            |    |    |
-  nn | done                           |            |              |    |    | 
-  pl | done                           | X          |    X           |    |    |
-  pt | done                           |            |                |    |    | 
-  ro | done - 225                     |            |               |    |    | 
-  ru | done                           |            |                |    |    | 
-  sk | done                           | X          |      X         |    |    |
-  slo| done - 232                     |            |               |    |    | 
-  sv | done                           |            |               |    |    | 
-  uk | done                           |            |               |    |    | 
-  ur | urdu                           |            |               |    |    | 
-  zh | X                              |            |               |    |    | 
+  ja |   X                              |            |                |    |    | 
+  nl   | done - 74                      |            |              |    |    | 
+  no   |  1,52GB                        | X          |   X            |    |    |
+  nn   | done                           |            |              |    |    | 
+  pl   | done                           | X          |    X           |    |    |
+  pt   | done                           |            |                |    |    | 
+  ro   | done - 225                     |            |               |    |    | 
+  ru   | done                           |            |                |    |    | 
+  sk   | done                           | X          |      X         |    |    |
+  slo  | done - 232                     |            |               |    |    | 
+  sv   | done                           |            |               |    |    | 
+  uk   | done                           |            |               |    |    | 
+  urdu |                                |            |               |    |    | 
+  zh   | X                              |            |               |    |    | 
  
 

@@ -8,7 +8,7 @@ Supported languages:
 
   language | person                   | Rhymes     | newspapes/wiki| un | bi | tri
   ---|--------------------------------|------------|---------------|----|----|-------
-  bg | kryštof                        | X          |      X        |    |    |
+  bg | done                           | X          |      X        |    |    |
   br | done # bretonstina - 137       |            | X             |    |    |  
   ca | X                              |            |               |    |    | 
   cs | done - 1,49GB michal           | X          |   X           |    |    |
@@ -16,24 +16,24 @@ Supported languages:
   da | done - 277                     |            |               |    |    | 
   de | X                              |X           | X             |    |    | 
   en | X                              |X           | X             |    |    | 
-  es | kryštof                        |           |X               |    |    | 
-  fi | kryštof                        |  X         |  X            |    |    |
-  fr | X                              |             |              |    |    | 
+  es | done                           |            |X               |    |    | 
+  fi | done                           |  X         |  X            |    |    |
+  fr | X                              |            |              |    |    | 
   hr | done # hrvatska - 225          |  X         | X             |    |    |
   it | done - 316                     |            |               |    |    | 
-  ilo| - done - 229                   |           |                |    |    | 
-  ja | X                              |           |                |    |    | 
-  nl | done - 74                      |             |              |    |    | 
-  no | michal 1,52GB                  | X         |   X            |    |    |
-  nn | kryštof                        |             |              |    |    | 
-  pl | kryštof                        | X         |    X           |    |    |
-  pt | kryštof                        |           |                |    |    | 
+  ilo| done - 229                     |            |                |    |    | 
+  ja | X                              |            |                |    |    | 
+  nl | done - 74                      |            |              |    |    | 
+  no |  1,52GB                        | X          |   X            |    |    |
+  nn | done                           |            |              |    |    | 
+  pl | done                           | X          |    X           |    |    |
+  pt | done                           |            |                |    |    | 
   ro | done - 225                     |            |               |    |    | 
-  ru | michal                         |           |                |    |    | 
-  sk | done - 391 MB kryštof          | X         |      X         |    |    |
-  slo| - done - 232                   |            |               |    |    | 
-  sv | kryštof                        |            |               |    |    | 
-  uk | kryštof                        |            |               |    |    | 
+  ru | done                           |            |                |    |    | 
+  sk | done                           | X          |      X         |    |    |
+  slo| done - 232                     |            |               |    |    | 
+  sv | done                           |            |               |    |    | 
+  uk | done                           |            |               |    |    | 
   ur | urdu                           |            |               |    |    | 
   zh | X                              |            |               |    |    | 
  

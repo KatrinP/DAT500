@@ -222,6 +222,10 @@ def main ( argv = None ):
     with langVector . Vector ( "vec.json" ) as lv:
         if filename and language:
             lv . addVector ( language, filename, plainText = True )
+
+        #lv . addVector ( "belgium", "out/part-00000", ngrams_sum_func = langVector . readHadoopOutput, update = True )
+        #lv . addVector ( "belgium", "out/output.txt", ngrams_sum_func = langVector . readHadoopOutput, update = True )
+        #lv . addVector ( "belgium", "out/part-00001", ngrams_sum_func = langVector . readHadoopOutput, update = True )
         #lv . addVector ( "english", "trait/english.txt", plainText = True)
         #lv . addVector ( "urdu", "trait/urdu.txt", plainText = True)
         #lv . addVector ( "czech", "trait/czech.txt", plainText = True)

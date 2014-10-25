@@ -2,7 +2,6 @@ import pickle
 import os
 import sys
 import collections
-import ijson as ijson
 import json
 import re
 import operator
@@ -84,30 +83,23 @@ class Vector:
 
         return result              
 
-    def addVector ( self, language, source_file, plainText = False, fullFormat = False ):
+    def addVector ( self, language, source_file, ngrams_sum_func = None, fullFormat = False, update = False ):
         self . _changed = True
         if language in self . _vectors . keys ():
             del self . _vectors [ language ]
+        #if update and language in self . _vectors . keys ():
+        #    self . _vectors [ language ] [ "total" ] [ ]
         ngrams_sum = [ {}, {}, {} ]
         result = { "count": [],
                    "ngrams": [],
                    "total": [] }
-        with open ( source_file, encoding = "utf-8" ) as inputFile:
-            if plainText:
-                s = 0
-                for line in inputFile:
-                    sys . stderr . write ( "%d\n" % ( s ) )
-                    s = s + 1
-                    line = re . sub ( "\r", "\n", line )
-                    line = re . sub ( "\n\n", "\n", line )
-                    for i, ngram in enumerate ( ngrams_sum ):
-                        extracted_grams = ngrams . count_ngrams ( line, i + 1 )
-                        combined = [ extracted_grams, ngrams_sum [ i ] ]
-                        ngrams_sum [ i ] = sum((collections.Counter(dict(lines)) for lines in combined), collections.Counter())
 
-                result [ "ngrams" ] = ngrams_sum
-                result = self . fillResult ( result, ngrams_sum )               
-            else:
+        if ngrams_sum_func is not None:
+            ngrams_sum = ngrams_sum_func ( source_file, ngrams_sum )
+            result [ "ngrams" ] = ngrams_sum
+            result = self . fillResult ( result, ngrams_sum )
+        else:
+            with open ( source_file, encoding = "utf-8" ) as inputFile:
                 if fullFormat:
                     result = json . load ( inputFile )
                 else:
@@ -117,12 +109,49 @@ class Vector:
 
 
         #print ( result )
+        #if language in self . _vectors . keys () and update:
+        #    self . _vectors [ language ] . update ( result )
+        #else:
         self . _vectors [ language ] = result
         print ( "I have learned " + language + "!" )
 
 
+def readPlainText ( source_file, ngrams_sum ):
+    with open ( source_file, encoding = "utf-8" ) as inputFile:
+        s = 0
+        for line in inputFile:
+            s = s + 1
+            line = re . sub ( "\r", "\n", line )
+            line = re . sub ( "\n\n", "\n", line )
+            for i, ngram in enumerate ( ngrams_sum ):
+                extracted_grams = ngrams . count_ngrams ( line, i + 1 )
+                combined = [ extracted_grams, ngrams_sum [ i ] ]
+                ngrams_sum [ i ] = sum((collections.Counter(dict(lines)) for lines in combined), collections.Counter())
 
+    return ngrams_sum   
 
+def readHadoopOutput ( source_file, ngrams_sum ):
+    with open ( source_file, encoding = "utf-8" ) as inputFile:
+        s = 0
+        for line in inputFile:
+            line = line . strip ()
+            #print (s )
+            s = s + 1 
+            parts = line . split ( "\t" )
+            if len ( parts ) <= 0 or len ( parts ) > 2:
+                raise Exception ( "Fatal error. readHadoopOutput(): Wrong line format." )
+            try:
+                key = eval ( parts [ 0 ] )
+                val = int ( parts [ 1 ] )
+            except Exception as inst:
+                raise Exception ( "Fatal error. readHadoopOutput(): Wrong line format." )
+
+            gram = len ( key )
+            if gram <= 0:
+                raise Exception ( "Fatal error. readHadoopOutput(): Wrong key format." )
+            ngrams_sum [ gram - 1 ] [ key ] = val
+
+    return ngrams_sum 
 
 
 # make a propbability list (vector) for one language

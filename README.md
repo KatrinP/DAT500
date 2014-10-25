@@ -11,26 +11,26 @@ Supported languages:
   bg | done                           | X          |      X        |    |    |
   br | done # bretonstina - 137       |            | X             |    |    |  
   ca | X                              |            |               |    |    | 
-  cs | done - 1,49GB                  | X          |   X           |    |    |
+  cs | done - 1,49GB                  | X          |   X           |X    |   X |X
   cy | welsh                          |            |               |    |    | 
-  da | done - 277                     |            |               |    |    | 
+  da | done - 277                     |            |               | X   | X   | X
   de | X                              |X           | X             |    |    | 
   en | X                              |X           | X             |    |    | 
   es | done                           |            |X               |    |    | 
   fi | done                           |  X         |  X            |    |    |
   fr | X                              |            |              |    |    | 
   hr | done # hrvatska - 225          |  X         | X             |    |    |
-  it | done - 316                     |            |               |    |    | 
+  it | done - 316                     |            |               |  X  |   X | X
   ilo| done - 229                     |            |                |    |    | 
   ja |   X                              |            |                |    |    | 
-  nl   | done - 74                      |            |              |    |    | 
+  nl   | done - 74                      |            |              |  X  |   X | X
   no   |  1,52GB                        | X          |   X            |    |    |
-  nn   | done                           |            |              |    |    | 
+  nn   | done                           |            |              |   X |  X  | X
   pl   | done                           | X          |    X           |    |    |
   pt   | done                           |            |                |    |    | 
-  ro   | done - 225                     |            |               |    |    | 
+  ro   | done - 225                     |            |               |  X  |  X | X
   ru   | done                           |            |                |    |    | 
-  sk   | done                           | X          |      X         |    |    |
+  sk   | done                           | X          |      X         |   X |   X |X
   slo  | done - 232                     |            |               |    |    | 
   sv   | done                           |            |               |    |    | 
   uk   | done                           |            |               |    |    | 

@@ -8,33 +8,33 @@ Supported languages:
 
   language | person                   | Rhymes     | newspapes/wiki| un | bi | tri
   ---|--------------------------------|------------|---------------|----|----|-------
-  bg | done                           | X          |      X        |    |    |
-  br | done # bretonstina - 137       |            | X             |    |    |  
-  ca | X                              |            |               |    |    | 
-  cs | done - 1,49GB                  | X          |   X           |X    |   X |X
+  bg | done                           | [x]          |      [x]        |    |    |
+  br | done # bretonstina - 137       |            | [x]             |    |    |  
+  ca | [x]                              |            |               |    |    | 
+  cs | done - 1,49GB                  | [x]          |   [x]           |[x]    |   [x] |[x]
   cy | welsh                          |            |               |    |    | 
-  da | done - 277                     |            |               | X   | X   | X
-  de | X                              |X           | X             |    |    | 
-  en | X                              |X           | X             |    |    | 
-  es | done                           |            |X               |    |    | 
-  fi | done                           |  X         |  X            |    |    |
-  fr | X                              |            |              |    |    | 
-  hr | done # hrvatska - 225          |  X         | X             |    |    |
-  it | done - 316                     |            |               |  X  |   X | X
+  da | done - 277                     |            |  [x]             | [x]   | [x]   | [x]
+  de | [x]                              |[x]           | [x]             |    |    | 
+  en | [x]                              |[x]           | [x]             |    |    | 
+  es | done                           |            |[x]               |    |    | 
+  fi | done                           |  [x]         |  [x]            |    |    |
+  fr | [x]                              |            |              |    |    | 
+  hr | done # hrvatska - 225          |  [x]         | [x]             |    |    |
+  it | done - 316                     |            |               |  [x]  |   [x] | [x]
   ilo| done - 229                     |            |                |    |    | 
-  ja |   X                              |            |                |    |    | 
-  nl   | done - 74                      |            |              |  X  |   X | X
-  no   |  1,52GB                        | X          |   X            |    |    |
-  nn   | done                           |            |              |   X |  X  | X
-  pl   | done                           | X          |    X           |    |    |
+  ja |   [x]                              |            |                |    |    | 
+  nl   | done - 74                      |            |              |  [x]  |   [x] | [x]
+  no   |  1,52GB                        | [x]          |   [x]            |    |    |
+  nn   | done                           |            |              |   [x] |  [x]  | [x]
+  pl   | done                           | [x]          |    [x]           |    |    |
   pt   | done                           |            |                |    |    | 
-  ro   | done - 225                     |            |               |  X  |  X | X
+  ro   | done - 225                     |            |               |  [x]  |  [x] | [x]
   ru   | done                           |            |                |    |    | 
-  sk   | done                           | X          |      X         |   X |   X |X
+  sk   | done                           | [x]          |      [x]         |   [x] |   [x] |[x]
   slo  | done - 232                     |            |               |    |    | 
   sv   | done                           |            |               |    |    | 
   uk   | done                           |            |               |    |    | 
   urdu |                                |            |               |    |    | 
-  zh   | X                              |            |               |    |    | 
+  zh   | [x]                              |            |               |    |    | 
  
 

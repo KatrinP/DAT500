@@ -8,7 +8,7 @@ Supported languages:
 
   language | person                   | Rhymes     | newspapes/wiki| un | bi | tri
   ---|--------------------------------|------------|---------------|----|----|-------
-  bg | done                           | X          |      X        |    |    |
+  bg | done                           | - [x]          |      X        |    |    |
   br | done # bretonstina - 137       |            | X             |    |    |  
   ca | X                              |            |               |    |    | 
   cs | done - 1,49GB                  | X          |   X           |X    |   X |X

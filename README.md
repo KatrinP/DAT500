@@ -28,7 +28,7 @@ Supported languages:
   nn   | done                           |            |  X            |   X |  X  | X
   pl   | done                           | X          |    X           |    |    |
   pt   | done                           |            |                |    |    | 
-  ro   | done - 225                     |            |               |  X  |  X | X
+  ro   | done - 225                     |            |  X             |  X  |  X | X
   ru   | done                           |            |                |    |    | 
   sk   | done                           | X          |      X         |   X |   X |X
   slo  | done - 232                     |            |               |    |    | 

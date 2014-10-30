@@ -8,9 +8,6 @@ import ngrams as ngrams
 import langVector
 
 
-
-
-
 def smoothing ( string, vector, n ):
     def occurence ( string, vector, n ):
         if n < 0:
@@ -222,6 +219,13 @@ def main ( argv = None ):
     with langVector . Vector ( "vec.json" ) as lv:
         if filename and language:
             lv . addVector ( language, filename, plainText = True )
+        lv.addVector("czech", "hadoopOut/cs.txt", ngrams_sum_func=langVector.readHadoopOutput, update=True)
+        lv.addVector("danish", "hadoopOut/da.txt", ngrams_sum_func=langVector.readHadoopOutput, update=True)
+        lv.addVector("italian", "hadoopOut/it.txt", ngrams_sum_func=langVector.readHadoopOutput, update=True)
+        lv.addVector("dutch", "hadoopOut/nl.txt", ngrams_sum_func=langVector.readHadoopOutput, update=True)
+        lv.addVector("nynorsk", "hadoopOut/nn.txt", ngrams_sum_func=langVector.readHadoopOutput, update=True)
+        lv.addVector("romanian", "hadoopOut/ro.txt", ngrams_sum_func=langVector.readHadoopOutput, update=True)
+        lv.addVector("slovak", "hadoopOut/sk.txt", ngrams_sum_func=langVector.readHadoopOutput, update=True)
 
         #lv . addVector ( "belgium", "out/part-00000", ngrams_sum_func = langVector . readHadoopOutput, update = True )
         #lv . addVector ( "belgium", "out/output.txt", ngrams_sum_func = langVector . readHadoopOutput, update = True )

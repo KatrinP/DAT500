@@ -1,7 +1,6 @@
 import codecs
 # from reads input file and creates new one. on every line of new file is one sentence
 # string source_file, string outputFile
-from language_recognizer import langVector
 from language_recognizer.langRecognizer import recognize_language, number_of_ngrams
 
 
@@ -35,8 +34,7 @@ def testFile(inputFileName, outputFileName, vectors):
     inputFile.close()
     outputFile.close()
 
-# createTestFile("tests_create/cze1.txt", "tests/cze1.txt")
+# createTestFile("tests_create/cze1.txt", "tests_created/cze1.txt")
 
 if __name__ == "__main__":
-
-    testFile("tests/cze1.txt", "test_results/cze1.txt")
+    testFile("tests_created/cze1.txt", "test_results/cze1.txt")

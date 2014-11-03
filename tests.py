@@ -26,8 +26,7 @@ def createTestFile(inputFileName, outputFileName):
     outputFile.close()
 
 
-def testFile(inputFileName, outputFileName):
-    vectors = langVector.load_vector("language_recognizer/language_vector.p")
+def testFile(inputFileName, outputFileName, vectors):
     inputFile = codecs.open(inputFileName, encoding="utf-8")
     outputFile = codecs.open(outputFileName, 'w+', encoding="utf-8")  # creates/rewrites output file
     for line in inputFile:
@@ -39,4 +38,5 @@ def testFile(inputFileName, outputFileName):
 # createTestFile("tests_create/cze1.txt", "tests/cze1.txt")
 
 if __name__ == "__main__":
+
     testFile("tests/cze1.txt", "test_results/cze1.txt")

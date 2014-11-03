@@ -4,8 +4,8 @@ import sys
 import math
 import getopt
 
-import ngrams as ngrams
-import langVector
+import language_recognizer.ngrams as ngrams
+import language_recognizer.langVector
 
 
 def smoothing ( string, vector, n ):

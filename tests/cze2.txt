@@ -1,7 +1,8 @@
 Atmosféra Marsu je plynný obal nacházející se okolo planety Mars.
 Je velmi řídká, není schopná zadržovat tepelnou výměnu mezi povrchem a okolním prostorem, což má za následek velké tepelné rozdíly během dne a noci.
 Tlak na povrchu se pohybuje mezi 600 a 1 000 Pa (s extrémy 30 Pa na vrcholku Olympus Mons až 1 155 Pa v oblasti Hellas Planitia).
-Je to přibližně 100- až 150krát méně než na povrchu Země; odpovídá to tlaku zhruba ve výšce 30 km nad zemským povrchem (průměrný tlak na povrchu Země je 101,3 kPa).
+Je to přibližně 100- až 150krát méně než na povrchu Země.
+ odpovídá to tlaku zhruba ve výšce 30 km nad zemským povrchem (průměrný tlak na povrchu Země je 101,3 kPa).
 Podobně jako na Zemi ale dochází k sezónním změnám v atmosféře, jak se planeta k Slunci přibližuje a oddaluje od něj.
 V zimě 25–30 % atmosférického oxidu uhličitého zmrzne na pólech, zatímco v létě opět sublimuje a vrací se do atmosféry.
 Dalším významným plynem v atmosféře je netečný plyn argon podobně jako na dalších planetách.

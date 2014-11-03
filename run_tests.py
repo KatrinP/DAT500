@@ -9,7 +9,8 @@ from occurence import Occurence
 from results import Graph
 from tests import createTestFile
 from tests import testFile
-
+from language_recognizer import langVector
+from language_recognizer.langRecognizer import recognize_language, number_of_ngrams
 
 CREATE_DIR = "./tests_create"
 TEST_DIR = "./tests"
@@ -55,11 +56,15 @@ def createTestFiles ():
 def testFiles ():
 
 	files = getFiles ( TEST_DIR )
-	for f in files:
-		testFile( TEST_DIR + "/" + f, RESULT_DIR + "/" + f )
+	with langVector . Vector ( "vec.json" ) as lv:
+		print ( "Vector %s loaded" % "vec.json" )
+		vectors = lv . vectors ()
+		for f in files:
+			testFile( TEST_DIR + "/" + f, RESULT_DIR + "/" + f, vectors )
 
 def determineLang ( filename ):
-	lang = [ "cz", "de", "no", "en" ]
+	lang = [ "cz", "de", "no", "en", "da", "it", "nl", "nn", "ro", "sk", "hr",
+			 "bg", "br", "fi", "uk", "pl", "fr", "pt", "ru", "sv", "es" ]
 
 	for l in lang:
 		if re . match ( l, filename ):
@@ -112,11 +117,23 @@ def generateCSV(results):
 
 if __name__ == "__main__":
 
+	print ( "Creating dirs ... " )
 	createDirs()
+	print ( "done" )
+	print ( "Creating test files ... " )
 	createTestFiles()
+	print ( "done" );
+	print ( "Testing files" )
 	testFiles()
+	print ( "done" );
+	print ( "Generating occurences and printing charts ... " )
 	results = generateOccurences()
+	print ( "done" )
+	print ( "Generating csv ... " ) 
 	generateCSV(results);
+	print ( "done" )
+
+	print ( "Bye" )
 
 	sys.exit(0)
 

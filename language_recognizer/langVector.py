@@ -6,7 +6,7 @@ import json
 import re
 import operator
 
-import ngrams
+import language_recognizer.ngrams as ngrams
 
 class Vector:
     def __init__  ( self, vector_file ):
@@ -33,7 +33,7 @@ class Vector:
                         nd [ str ( key ) ] = ngrams [ key ]
                     self . _vectors [ language ] [ "ngrams" ] [ i ] = nd
 
-            json . dump ( self . _vectors, f, indent = 1 )
+            json . dump ( self . _vectors, f )
 
     def vectors ( self ):
         return self . _vectors

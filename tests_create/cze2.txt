@@ -1,0 +1,29 @@
+Atmosféra Marsu je plynný obal nacházející se okolo planety Mars.
+Je velmi řídká, není schopná zadržovat tepelnou výměnu mezi povrchem a okolním prostorem, což má za následek velké tepelné rozdíly během dne a noci.
+Tlak na povrchu se pohybuje mezi 600 a 1 000 Pa (s extrémy 30 Pa na vrcholku Olympus Mons až 1 155 Pa v oblasti Hellas Planitia).
+Je to přibližně 100- až 150krát méně než na povrchu Země; odpovídá to tlaku zhruba ve výšce 30 km nad zemským povrchem (průměrný tlak na povrchu Země je 101,3 kPa).
+Podobně jako na Zemi ale dochází k sezónním změnám v atmosféře, jak se planeta k Slunci přibližuje a oddaluje od něj.
+V zimě 25–30 % atmosférického oxidu uhličitého zmrzne na pólech, zatímco v létě opět sublimuje a vrací se do atmosféry.
+Dalším významným plynem v atmosféře je netečný plyn argon podobně jako na dalších planetách.
+Oproti oxidu uhličitému nekondenzuje, což vede k tomu, že jeho obsah v atmosféře je konstantní.
+Na druhou stranu koncentrace argonu se v lokálním měřítku mění v závislosti na změnách obsahu oxidu uhličitého.
+Pokud dochází k sublimaci oxidu uhličitého do atmosféry, procentuální koncentrace argonu v atmosféře klesá a naopak.
+Satelitní data ukazují, že k tomuto poklesu a nárůstu dochází periodicky v oblastech severního a jižního pólu v závislosti na změně ročního období.
+Procentuální obsah argonu může díky zmenšení obsahu oxidu uhličitého dosáhnout až 30 %.
+V atmosféře Marsu byl objeven metan, který není schopen přetrvat v atmosféře déle než několik stovek let, což ukazuje, že se na planetě musí nacházet nějaký zdroj, který by jeho koncentraci doplňoval.
+Spekuluje se o dvou možných zdrojích – vulkanická aktivita nebo produkce biologickými pochody v podobě extrémofilních organismů.
+Podobné organismy, zpracovávající vodík a oxid uhličitý za vzniku metanu, jsou známé i ze Země.
+Obdobně jako na Zemi i atmosféra Marsu se dá vertikálně rozčlenit na několik vrstev, ve kterých se projevují rozdílné vlastnosti atmosféry či ve kterých dochází ke změně teploty.
+Nižší vrstva – je poměrně teplá vrstva, která je ohřívána zachyceným zářením prachu v atmosféře a teplem uvolňovaným z povrchu.
+Rozkládá se přibližně do 45 km nad povrchem.
+Střední vrstva – je oblast, kde se nachází marsovský jet stream obepínající celou planetu.
+Rozkládá se mezi 45 až 110 km.
+Vyšší vrstva či termosféra – v této vrstvě se nachází velmi teplá oblast, která je ohřívána přímým slunečním teplem dopadajícím na planetu.
+Dochází zde k segregaci jednotlivých atmosférických plynů od sebe.
+Rozkládá se mezi 110 až 200 km nad povrchem.
+Mezi výškou 110 až 130 km se nachází marsovská ionosféra, kde dochází k štěpení atomů vlivem slunečního záření.
+Oproti pozemské ionosféře je marsovská slabší a prochází přes ni více nebezpečného záření na povrch, což by mohl být problém pro případnou posádku na Marsu.
+Podrobný průzkum ionosféry provádí evropská sonda Mars Express.
+Exosféra – je oblast, která se nachází ve vyšších oblastech nad 200 km.
+V této oblasti dochází k úniku plynů do kosmického prostoru.
+Je složité přesně určit hranici, kde atmosféra končí.

@@ -6,35 +6,39 @@ Repository for Data-Intensive systems course
 Supported languages:
 ======
 
-  language | person                   | Rhymes     | newspapes/wiki| un | bi | tri
-  ---|--------------------------------|------------|---------------|----|----|-------
-  bg | done                           | X          |      X        |    |    |
-  br | done # bretonstina - 137       |            | X             |    |    |  
-  ca | X                              |            |               |    |    | 
-  cs | done - 1,49GB                  | X          |   X           |X    |   X |X
-  cy | welsh                          |            |               |    |    | 
-  da | done - 277                     |            |  X             | X   | X   | X
-  de | X                              |X           | X             |    |    | 
-  en | X                              |X           | X             |    |    | 
-  es | done                           |            |X               |    |    | 
-  fi | done                           |  X         |  X            |    |    |
-  fr | X                              |            |              |    |    | 
-  hr | done # hrvatska - 225          |  X         | X             |    |    |
-  it | done - 316                     |            |  X            |  X  |   X | X
-  ilo| done - 229                     |            |                |    |    | 
-  ja |   X                              |            |                |    |    | 
-  nl   | done - 74                      |            | X             |  X  |   X | X
-  no   |  1,52GB                        | X          |   X            |    |    |
-  nn   | done                           |            |  X            |   X |  X  | X
-  pl   | done                           | X          |    X           |    |    |
-  pt   | done                           |            |                |    |    | 
-  ro   | done - 225                     |            |  X             |  X  |  X | X
-  ru   | done                           |            |                |    |    | 
-  sk   | done                           | X          |      X         |   X |   X |X
-  slo  | done - 232                     |            |               |    |    | 
-  sv   | done                           |            |               |    |    | 
-  uk   | done                           |            |               |    |    | 
-  urdu |                                |            |               |    |    | 
-  zh   | X                              |            |               |    |    | 
+   short  |   language                  | Rhymes     | newspapes/wiki
+  ---|--------------------------------|------------|---------------
+  bg | bulgarian                      | X          |      X        
+  br | breton                         |            | X            
+  cs | czech                          | X          |   X          
+  da | danish                         |            |  X              
+  en | english                        |X           | X             
+  es | spanish                        |            |X           
+  fi | finnish                        |  X         |  X         
+  fr | french                         |            |         
+  it | italian                        |            |  X           
+  nl   | dutch                        |            | X            
+  nn   | nynorsk                      |            |  X        
+  no   |  norsk                       | X          |   X           
+  pl   | polish                       | X          |    X
+  pt   | portuguese                   |            |     
+  ro   | romanian                     |            |  X             
+  ru   | russian                      |            |               
+  sk   | slovak                       | X          |      X       
+  sv   | swedish                      |            |              
+  uk   | ukrainian                    |            |            
+
  
 
+ ca | X                              |            |               |    |    | 
+   cy | welsh                          |            |               |    |    | 
+    de | X                              |X           | X             |    |    | 
+
+        ilo| done - 229                     |            |                |    |    | 
+  ja |   X                              |            |                |    |    | 
+        hr | done # hrvatska - 225          |  X         | X             |    |    |
+       
+  pt   | done                           |            |                |    |    | 
+          slo  | slovene                     |            |               |    |    | 
+            urdu |                                |            |               |    |    | 
+  zh   | X                              |            |               |    |    | 

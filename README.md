@@ -11,7 +11,8 @@ Supported languages:
   bg | bulgarian                      | X          |      X        
   br | breton                         |            | X            
   cs | czech                          | X          |   X          
-  da | danish                         |            |  X              
+  da | danish                         |            |  X         
+  de | german                         |X           | X             |    |    | 
   en | english                        |X           | X             
   es | spanish                        |            |X           
   fi | finnish                        |  X         |  X         
@@ -32,7 +33,7 @@ Supported languages:
 
  ca | X                              |            |               |    |    | 
    cy | welsh                          |            |               |    |    | 
-    de | X                              |X           | X             |    |    | 
+    
 
         ilo| done - 229                     |            |                |    |    | 
   ja |   X                              |            |                |    |    | 

@@ -12,22 +12,22 @@ Supported languages:
   br | breton                         |            | X            
   cs | czech                          | X          |   X          
   da | danish                         |            |  X         
-  de | german                         |X           | X             |    |    | 
+  de | german                         |X           | X            
   en | english                        |X           | X             
   es | spanish                        |            |X           
   fi | finnish                        |  X         |  X         
-  fr | french                         |            |         
+  fr | french                         |            |   X      
   it | italian                        |            |  X           
   nl   | dutch                        |            | X            
   nn   | nynorsk                      |            |  X        
   no   |  norsk                       | X          |   X           
   pl   | polish                       | X          |    X
-  pt   | portuguese                   |            |     
+  pt   | portuguese                   |            |    X 
   ro   | romanian                     |            |  X             
-  ru   | russian                      |            |               
+  ru   | russian                      |            |    X           
   sk   | slovak                       | X          |      X       
-  sv   | swedish                      |            |              
-  uk   | ukrainian                    |            |            
+  sv   | swedish                      |            |      X        
+  uk   | ukrainian                    |            |    X        
 
  
 

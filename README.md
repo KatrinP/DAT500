@@ -17,6 +17,8 @@ Supported languages:
   es | spanish                        |            |X           
   fi | finnish                        |  X         |  X         
   fr | french                         |            |   X      
+  hr | croatian                       |  X         | X    
+
   it | italian                        |            |  X           
   nl   | dutch                        |            | X            
   nn   | nynorsk                      |            |  X        
@@ -26,6 +28,7 @@ Supported languages:
   ro   | romanian                     |            |  X             
   ru   | russian                      |            |    X           
   sk   | slovak                       | X          |      X       
+  sl  | slovene                     |            |     
   sv   | swedish                      |            |      X        
   uk   | ukrainian                    |            |    X        
 
@@ -33,13 +36,13 @@ Supported languages:
 
  ca | X                              |            |               |    |    | 
    cy | welsh                          |            |               |    |    | 
-    
+
 
         ilo| done - 229                     |            |                |    |    | 
   ja |   X                              |            |                |    |    | 
-        hr | done # hrvatska - 225          |  X         | X             |    |    |
+       
        
   pt   | done                           |            |                |    |    | 
-          slo  | slovene                     |            |               |    |    | 
+       
             urdu |                                |            |               |    |    | 
   zh   | X                              |            |               |    |    | 

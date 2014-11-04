@@ -27,7 +27,7 @@ Supported languages:
   ro   | romanian                     |            |  X             
   ru   | russian                      |            |    X           
   sk   | slovak                       | X          |      X       
-  sl  | slovene                     |            |     
+  sl  | slovene                     |            |     X
   sv   | swedish                      |            |      X        
   uk   | ukrainian                    |            |    X        
 

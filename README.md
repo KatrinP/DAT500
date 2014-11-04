@@ -7,7 +7,7 @@ Supported languages:
 ======
 
    short  |   language                | Rhymes     | newspapes/wiki| results
-  ---|--------------------------------|------------|------------------------------
+  ---|--------------------------------|------------|---------------|---------------
   bg | bulgarian                      | X          |      X        |
   br | breton                         |            | X             |
   cs | czech                          | X          |   X           |

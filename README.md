@@ -18,7 +18,6 @@ Supported languages:
   fi | finnish                        |  X         |  X         
   fr | french                         |            |   X      
   hr | croatian                       |  X         | X    
-
   it | italian                        |            |  X           
   nl   | dutch                        |            | X            
   nn   | nynorsk                      |            |  X        

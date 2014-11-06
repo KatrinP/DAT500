@@ -29,7 +29,7 @@ Supported languages:
   sk   | slovak                       | 912   |  779     |   85,4     
   sl  | slovene                       | 246   |   240    |   97,5    
   sv   | swedish                      |  329  |  111     | 33,7   
-SUM    |                              | 7198  | 6537     |  90,8
+SUM    |                              |       |          |  91,6
  
 
 

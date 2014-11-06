@@ -49,9 +49,7 @@ def count_ngrams(plain_text, n, split = lambda x: list ( x ) ):
     ngrams = counter(ngram_array)
     return ngrams
 
-#stdin = io . TextIOWrapper ( sys . stdin . buffer, encoding = "utf-8" )
-
-for line in sys.stdin: # read input from STDIN
+for line in sys.stdin:
     #line = line.strip() # remove leading and trailing whitespace
     line = re . sub ( "\r", "\n", line )
     line = re . sub ( "\n\n", "\n", line )

@@ -10,27 +10,26 @@ ngram = None
 
 sys.stdin = codecs.getreader("utf-8")(sys.stdin)
 
-for line in sys.stdin: # read input from STDIN
-  line = line.strip() # remove leading and trailing whitespace
+for line in sys.stdin:
+  line = line.strip()
   try:
-    ngram, count = line.split('\t', 1) # parse the input we got from email_count_mapper.py, two words, tab delimited
+    ngram, count = line.split('\t', 1)
   except:
     print ( "error: " + line )
     continue
-  try: # convert count from str to int, if not possible discard this input
+  try:
     count = int(count)
   except ValueError:
     continue
 
-  if current == ngram: #this works because mapper output is sorted by key (ngram) by Hadoop before feeding to reducer input
-    current_count += count #if email domain hasn't changed continue counting its occurances
+  if current == ngram:
+    current_count += count
   else:
-    if current: #if email domain has changed output count for previous email domain to STDOUT and start counting for new email domain
+    if current:
       print ( '%s\t%s' % (current, current_count) )
 
     current_count = count
     current = ngram
 
-# output the last email domain
 if current == ngram:
   print ( '%s\t%s' % (current, current_count) )

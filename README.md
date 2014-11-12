@@ -28,7 +28,6 @@ Supported languages:
   ru   | russian                      |  910  | 876      |  96,3  
   sk   | slovak                       | 912   |  779     |   85,4     
   sl  | slovene                       | 246   |   240    |   97,5    
-  sv   | swedish                      |  329  |  111     | 33,7   
 SUM    |                              |       |          |  94,5
  
 
